@@ -1,0 +1,63 @@
+<!-- ## 🎯 Practice Exercise 7
+**Task:** Create a semantic blog post layout with:
+- Proper article structure with header, main content, and footer
+- At least 2 sections within the article
+- An aside with related links
+- Accessible form for comments
+- Proper heading hierarchy -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Blogpost</title>
+</head>
+<body>
+    <div style="background-color: #c8c1d8; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+    <h3 style="color: #09466e; text-align: center;">Artificial Intelligence</h3>
+    
+    <article style="background-color: rgb(227, 223, 243); padding: 20px; border-radius: 8px; margin-bottom: 15px; border-right: 4px solid #632abe; border-top: 4px solid #632abe;"> 
+        <header style="border-bottom: 1px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
+            <h3 style="color: #2c3e50; margin: 0;">All You Need to Know About AI</h3>
+            <p style="color: #666; margin: 5px 0 0 0; font-size: 12px;">Published on <time datetime="2024-03-15">Sept 11, 2025</time> by <strong>Adebimpe Atoyebi</strong></p>
+        </header>
+        
+        <main>
+            <p style="color:black">This blog post summarizes details about AI as the latest transformative technology which mimics human to solve problems, learn, and suggest decisions in almost every matter of life.</p>
+            
+            <section style="margin: 20px 0;">
+                <h3 style="color: #5627ae;">Key Applications</h3>
+                <ul>
+                    <li>Generatin texts and multimedia</li><li>Powering virtual assistance</li><li>Automation</li>
+                </ul> 
+            </section>
+            
+            <aside style="background-color: #f8f9fa; padding: 5px; border-radius: 5px; margin: 10px 0; border: 1px solid #ae7fe4; box-shadow: #ae7fe4;">
+                <center><h4 style="color: #f39c12; margin-top: ;">How do AI work?</h4></center>
+                <p style="margin-bottom:; color:black; text-align: center;">It woks with data-driven learning eg machine learning and deep learning</p>
+                <p>Read more: <a href="https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/what-is-artificial-intelligence",  >Everything about AI</a></p>
+            </aside>
+        </main>
+        
+        <footer style="border-top: 1px solid #ddd; padding-top: 10px; margin-top: 15px; font-size: 14px; color: #666;">
+            <p style="margin: 0;">Tags: <mark>ÀI</mark>, <mark>Deep Learning</mark>, <mark>technology</mark></p>
+        </footer>
+    </article>
+
+
+    <form>
+            <div style="margin-bottom: 15px;">
+                <label for="comments" style="display: block; margin-bottom: 5px; font-weight: bold; color: rgb(39, 8, 88);">Comments:</label>
+                <textarea id="message"
+                name="comments" 
+                rows="4"
+                style="width: 90%; padding: 8px; border: 1.5px solid #5b4675; border-radius: 5px;"
+                placeholder="We want to hear from you"></textarea> 
+        </div>
+        </form>
+    </div>
+</div>  
+</body>
+</html>
+
