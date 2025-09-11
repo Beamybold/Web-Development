@@ -52,15 +52,38 @@
 
         
             <p><label><input type="radio" name="gender" value="Male">Male</label></p>
-       
             </fieldset>
-        
         </div>
-        
+          
+        <div>
+         <fieldset style="width: 85%; border: 2px solid rgb(136, 82, 136); border-radius: 4%; padding: 10px; margin-bottom: 10px;">
+             <legend style="font-weight: bold; color: black;">Interests</legend>
+
+             <div>
+                <p><label><input type="checkbox" name="Interests" value="javascript"> JavaScript</label></p>
+                <p><label><input type="checkbox" name="interest" value="python"> Python</label></p>
+                <p><label><input type="checkbox" name="interest" value="java"> Java</label></p>
+                <p><label><input type="checkbox" name="interest" value="csharp"> C#</label></p>
+                <p><label><input type="checkbox" name="interest" value="php"> PHP</label></p>
+            </div>
+         </div>
+            
+        <div style="margin-bottom: 15px;">
+            <label for="country" style="display: block; margin-bottom: 5px; font-weight: bold;">Country:</label>
+            <select id="country" name="country" style="width: 100%; padding: 8px; border: 2px solid #ddd; border-radius: 5px;">
+                <option value="select">Select your country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="ca">Canada</option>
+                <option value="ng">Nigeria</option>
+                <option value="gh">Ghana</option>
+                <option value="ke">Kenya</option>
+            </select>
+        </div>
 
         <button type="submit"
-                style="background-color: #3498db; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-            Register
+                style="background-color:  #5b4675; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Submit
         </button>
     </form>
 </div>
