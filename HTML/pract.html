@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="gen container">
+        <header>
+            <div class="header container">
+                <p class="logo">Exam</p>
+            </div>
+            <div class="menu">
+
+            </div>
+        </header>
+
+    </div>
+</body>
+</html>
+
+
+
+<!-- **Create a comprehensive portfolio website using advanced HTML features.**
+
+**Requirements:**
+- Complete HTML5 document with proper head seSction
+- Semantic page structure (header, nav, main, aside, footer)
+- Accessible navigation and forms
+- Advanced form validation
+- Proper heading hierarchy
+- Images with descriptive alt text
+- Contact section with validation
+- About section with proper article structure
+- Professional styling using only inline CS -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adebimpe AI dev- Portfolio </title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #033333; color: #333;">
+
+    
+    <header style="background-color: #333; color: white; padding: 20px; text-align: center;">
+        <h1 style="margin: 0;">ATOYEBI Adebimpe</h1>
+        <p style="margin: 5px 0 0;">AI Developer</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav aria-label="Main navigation" style="background-color: #555; padding: 10px; text-align: center;">
+        <a href="#about" style="color: white; margin: 0 15px; text-decoration: none;">About</a>
+        <a href="#projects" style="color: white; margin: 0 15px; text-decoration: none;">Projects</a>
+        <a href="#contact" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding: 20px; max-width: 1000px; margin: auto;">
+
+        <!-- About Section -->
+        <section id="about" aria-labelledby="about-heading" style="margin-bottom: 40px;">
+            <article style="background-color: white; padding: 20px; border-radius: 5px;">
+                <h2 id="about-heading" style="margin-top: 0;">About Me</h2>
+                <p>Hello! I'm John Doe, a passionate web developer with experience in building responsive and accessible websites.</p>
+                <img src="profile.jpg" alt="Portrait of John Doe smiling" style="width: 100%; max-width: 300px; border-radius: 5px; display: block; margin-top: 20px;">
+            </article>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" aria-labelledby="projects-heading" style="margin-bottom: 40px;">
+            <h2 id="projects-heading">Projects</h2>
+            <ul>
+                <li><strong>Portfolio Website</strong> - A responsive, accessible website built with HTML5 and CSS.</li>
+                <li><strong>ToDo App</strong> - A simple JS-based task manager with local storage.</li>
+            </ul>
+        </section>
+
+        <!-- Aside -->
+        <aside aria-label="Related info" style="background-color: #e9e9e9; padding: 15px; border-left: 4px solid #ccc;">
+            <h3 style="margin-top: 0;">Skills</h3>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript</li>
+                <li>Accessibility (a11y)</li>
+                <li>Responsive Design</li>
+            </ul>
+        </aside>
+
+        <!-- Contact Section -->
+        <section id="contact" aria-labelledby="contact-heading" style="margin-top: 40px;">
+            <h2 id="contact-heading">Contact Me</h2>
+            <form action="#" method="POST" style="background-color: white; padding: 20px; border-radius: 5px;" novalidate>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required minlength="2" style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 8px; margin-bottom: 10px;"><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" required minlength="10" style="width: 100%; padding: 8px; margin-bottom: 10px;"></textarea><br>
+
+                <input type="submit" value="Send Message" style="background-color: #333; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #333; color: white; text-align: center; padding: 15px; margin-top: 40px;">
+        <p>&copy; 2025 John Doe. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
