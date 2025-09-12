@@ -1,0 +1,53 @@
+/* CSS controls how everything looks - colors, fonts, spacing, layout, and visual effects.
+
+CSS Syntax and Structure
+selector {
+    property: value;
+    property: value;
+}
+
+
+
+*/
+
+h1 {
+    color: green;
+    font-size: 24px;
+}
+
+p {
+    color: grey;
+    font-family: Arial, sans-serif;
+}
+
+.highlight {
+    background-color: #37ad69;
+    color: white;
+    padding: 5px;
+}
+
+/* 3 ways to add CSS
+1- Inline CSS: Applied in HTML  elements directly using "style" attribute 
+eg  */
+/* <h1 style="color: red; font-size: 24px;">This is inline CSS</h1> */
+
+/* -Pros: Quick for testing
+-Cons: Not reusable, hard to maintain
+
+2- Internal CSS
+Added in the "<style>" tag within the HTML document's "<head>" section. */
+
+/* <style>
+    h1 { color: red; font-size: 24px; }
+</style> */
+
+/* - Pros: Keeps styles organized in one place
+- Cons: Only applies to that specific HTML page */
+
+/* 3- External CSS
+Separate .css file linked to the HTML document. */
+
+/* <link rel="stylesheet" href="styles.css"> */
+
+/* -Pros: Reusable across multiple pages, best organization
+-Cons: Requires separate file management */
