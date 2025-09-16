@@ -7,7 +7,7 @@
 </head>
 <body>
    <center> <h1>BASIC CONTACT FORM</h1></center>
-    <div style="background-color: #f9f9f9; padding: 20px; border-radius: 10px; max-width: 500px;">
+    <div style="background-color: #fff5f5; padding: 20px; border-radius: 10px; max-width: 600px;";">
         <h3 style="margin-bottom: 15px;">
             <form>
                 <div style="margin-bottom: 15px;">
@@ -67,13 +67,60 @@
 
                 <tr>
                     <td><label for="color-input"><strong>Color:</strong></label></td>
-                    <td><input type="color" id="color-input" value="#3457db"
+                    <td><input type="color" id="color-input" value="#3498db"
                         style="border: 1px solid #ddd; border-radius: 4px; width: 60px; height: 35px;"></td>
                 </tr>
-            </table>
 
+                <tr>
+                    <td><label for="range-input"><strong>Range:</strong></label></td>
+                    <td><input type="range" id="range-input" min="0" max="100" value="50" style="width: 70%;"></td>
+                </tr>
+            </table>
         </form>
 
+        <div style="background-color: rgb(199, 230, 198); border-radius: 8px; padding: 20px; max-width: 500px;">
+            <h3 style="color: green;">Selection inputs</h3>
+            <form>
+                <fieldset style="background-color: rgb(199, 230, 198); border: 3px solid green; max-width: 500px; margin-bottom: 5px; border-radius: 10px;">
+                    <legend style="font-weight: bold; color: green ;">Programming  Languages (Check all that apply)</legend>
+                    <div style="color: green;">
+                        <p><label><input type="checkbox" name="languages" value="javascript">JavaScript</label></p>
+                        <p><label><input type="checkbox" name="language" value="Python">Python</label></p>
+                        <p><label><input type="checkbox" name="language" value="java">Java</label></p>
+                        <p><label><input type="checkbox" name="language" value="C#"></label>C#</p>
+                        <p><label><input type="checkbox" name="language" value="php"></label>PHP</p>
+                    </div>
+                </fieldset>
+
+
+                    <div style="margin-top: 20px; color: green;">
+                    <fieldset style="background-color: rgb(199, 230, 198); border: 3px solid green; max-width: 500px; margin-bottom: 5px; border-radius: 10px; "><legend style="font-weight: bold;">Experience Level(Select one)</legend>
+                    
+                        <p><label><input type="radio" name="experience" value="beginner">Beginner</label></p>
+                        <p><label><input type="radio" name="experience" value="intermediate">Intermediate</label></p>
+                        <p><label><input type="radio" name="experience" value="advanced">Advanced</label></p>
+                        <p><label><input type="radio" name="experience" value="expert">Expert</label></p>
+                    </div>
+
+                    <div style="margin-top: 20px; color: green;">
+                        <label for="country" style="display: block; margin-bottom: 5px; font-weight: bold;">Country:</label>
+                        <select id="country" name="contry" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px;">
+                            <option value=" ">Select your country</option>
+                            <option value="us">United State</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">canada</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="gh">Ghana</option>
+                            <option value="ke">Kenya</option>
+                        </select>
+                    </div>
+                    <button type="submit" style="background-color: #27ae27; color: white; padding: 10px 20px; margin-top: 10px; border: none; border-radius: 5px; cursor: pointer;">Submit Survey
+                    </button>
+                </div>
+                </fieldset>
+
+            </form>
+        </div>
     </div>
 </body>
 </html>
