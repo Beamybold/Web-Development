@@ -1,6 +1,5 @@
 .body{
     padding: 30px;
-  
     height: 100%;
     border: 30px;
 }
@@ -21,9 +20,18 @@ button{
     font-size: 15px;
 }
 
+
+
 .section{
     padding: 20px;
     margin: auto;
     line-height: 1.6;
 }
+
+#about, #contact, #skills{
+    display: none;
+}
+
+
+
 
