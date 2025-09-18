@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Layout</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #333;
+      color: #fff;
+    }
+    .navbar .menu {
+      display: flex;
+      gap: 20px;
+    }
+    .navbar .menu a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .navbar .menu a:hover { color: #ff9800; }
+
+    /* Main layout */
+    .main {
+      display: flex;
+      min-height: 80vh;
+    }
+    .sidebar {
+      flex: 1;
+      background: #444;
+      color: #fff;
+      padding: 20px;
+    }
+    .content {
+      flex: 3;
+      padding: 20px;
+    }
+
+    /* Cards */
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .card {
+      flex: 1 1 calc(33.33% - 20px);
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background: #333;
+      color: #fff;
+    }
+    .footer-column {
+      flex: 1;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">MyDashboard</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Settings</a>
+      <a href="#">Logout</a>
+    </div>
+  </div>
+
+  <!-- Main Section -->
+  <div class="main">
+    <div class="sidebar">
+      <h3>Sidebar</h3>
+      <p>Links or menu items here</p>
+    </div>
+    <div class="content">
+      <h2>Dashboard Content</h2>
+      <div class="cards">
+        <div class="card">Feature Card 1</div>
+        <div class="card">Feature Card 2</div>
+        <div class="card">Feature Card 3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-column">Column 1</div>
+    <div class="footer-column">Column 2</div>
+    <div class="footer-column">Column 3</div>
+  </div>
+
+</body>
+</html>
