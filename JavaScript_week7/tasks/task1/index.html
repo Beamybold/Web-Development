@@ -1,52 +1,139 @@
+ <!-- Create a Personal Information Display
+
+**Requirements:**
+1. Create variables for your personal information:
+   - First name (string)
+   - Last name (string) 
+   - Age (number)
+   - Is student (boolean)
+   - Favorite color (string)
+
+2. Display this information using template literals
+3. Calculate and show what your age will be in 5 years
+4. Create a formatted display that looks professional -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>practice</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Personal info</title>
+    <style>
+        .demo-button {
+      background-color: rgb(174, 43, 226); 
+      padding: 10px; 
+      border-radius: 7px; 
+      border: none; color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
+    .js-demo{
+        background-color: rgb(213, 208, 218); 
+        margin: auto; 
+        padding: 23px;
+    }
+    
+    button:hover {
+      background: #ee91ee;
+    }
+    
+    </style>
 </head>
-
 <body>
-    <div class="gen_cont">
-        <div>
-            <button id="aboutme">About Me</button>
-        </div>
-
-        <div>
-            <button id="mycontact">My contact</button>
-        </div>
-
-        <div>
-            <button id="myskills">My Skills</button>
-        </div>
-
+    <div class="js-demo">
+    <h3>Practice Exercise 1: Personal Information</h3>
+    <p>Create your personal information display:</p>
+    <div>
+    <button class="demo-button" onclick="createPersonalInfo()">Show My Info</button>
+    <button class="demo-button"  onclick="createCustomInfo()">Create Custom Info</button>
     </div>
+    
+    <div id="exercise1-output" class="output" style="margin-top: 20px;">Click a button to create your personal information display...</div>
+</div>
+
+<script>
+function createPersonalInfo() {
+    let firstName = "Ade";
+    let lastName = "Oye";
+    let age = 22;
+    let isStudent = false;
+    let favoriteColor = "Yellow";
+   
 
 
-    <div class="section">
+    let greeting = `Hello, my name is ${firstName} ${lastName}.`;
+    let info = `I am ${age} years old, I am and my favourite color is ${favoriteColor}.`;
+     let futureAge= age + 5;
 
-        <p id="about">My name is Atoyebi, Adebimpe Nafisat a graduate of Urban and Regional Planning and a proficient data analyst. i am currently learning Generative AI focusing onAI Developer track. I have an understanding of python, HTML, CSS, and JavaScript to solve realworldproblem.</p>
+    let multiLine = `
+        Name: ${firstName} ${lastName}
+        Age: ${age}
+        Student: ${isStudent}
+        Status: ${age >= 18 ? 'Adult' : 'Minor'}
+        Color: ${favoriteColor}
+        Futureage: ${age + 5}
+    `;
+    
 
-        <div id="contact">My contact:
-        <ul>
-            <li>Phone Number: 081303164887</li>
-            <li>Email Address: atoyebiadebimpe01@gmail.com</li>
-        </ul>
-    </div>
 
-        <p id="skills">
-            My skills: Python, HTML
-        </p>   
+    let output = `
+        <strong>Personal Info:</strong><br><br>
+        FirstName = "${firstName}", 
+        LastName = "${lastName}",
+        Age = ${age}<br>
+        <strong>Personal info:</strong><br>
+        greeting: "${greeting}"<br>
+        info: "${info}"<br>
+        futureage: "${futureAge}"<br>
+        
+        <strong>Personal Info:</strong><br>
+        <pre>${multiLine}</pre>
+        <em>What else do you want to know about me?</em>
+    `;
+
+      document.getElementById('exercise1-output').innerHTML = output;
+}
 
     
-    </div>
 
+    
+    
+    
+    
+    
 
-
+function createCustomInfo() {
+    // Get user input
+    const firstName = prompt("Enter your first name:") || "Student";
+    const lastName = prompt("Enter your last name:") || "Learner";
+    const age = parseInt(prompt("Enter your age:")) || 20;
+    const isStudent = confirm("Are you currently a student?");
+    const favoriteColor = prompt("Enter your favorite color:") || "purple";
+    
+    const futureAge = age + 5;
+    
+    const personalInfo = `
+        <div  style="border: 2px solid ${favoriteColor}; padding: 15px; border-radius: 8px; background-color: #ee91ee">
+            <h4 style="color: ${favoriteColor}; margin-top: 0;">Your Personal Information Card</h4>
+            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+            <p><strong>Current Age:</strong> ${age} years old</p>
+            <p><strong>Student Status:</strong> ${isStudent ? 'Yes, I am a student' : 'No, I am not a student'}</p>
+            <p><strong>Favorite Color:</strong> ${favoriteColor}</p>
+            <p><strong>In 5 years:</strong> You will be ${futureAge} years old</p>
+            <p><strong>Fun Fact:</strong> Your name has ${firstName.length + lastName.length} letters total!</p>
+        </div>
+    `;
+    
+    document.getElementById('exercise1-output').innerHTML = personalInfo;
+}
+</script>
+    
 </body>
-
 </html>
+
+
+
+

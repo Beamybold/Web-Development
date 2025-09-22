@@ -1,0 +1,50 @@
+<div class="js-demo">
+    <h3>String Operations and Template Literals</h3>
+    <p>Learn different ways to work with strings in JavaScript:</p>
+    
+    
+    <button class="demo-button" onclick="showTemplateLiterals()">Template Literals</button>
+   
+    
+    <div id="string-output" class="output">Click a button to explore string operations...</div>
+</div>
+
+<script>
+
+function showTemplateLiterals() {
+    let firstName = "Jane";
+    let lastName = "Smith";
+    let age = 30;
+    let city = "New York";
+    
+    // Modern way: template literals with backticks
+    let greeting2 = `Hello, my name is ${firstName} ${lastName}.`;
+    let info2 = `I am ${age} years old and live in ${city}.`;
+    
+    // Can include expressions
+    let mathExample = `Next year I will be ${age + 1} years old.`;
+    let upperCase = `My name in caps: ${firstName.toUpperCase()} ${lastName.toUpperCase()}`;
+    
+    // Multi-line strings (impossible with quotes)
+    let multiLine = `
+        Name: ${firstName} ${lastName}
+        Age: ${age}
+        City: ${city}
+        Status: ${age >= 18 ? 'Adult' : 'Minor'}
+    `;
+    
+    let output = `
+        <strong>Template Literals with \` (backticks):</strong><br><br>
+        firstName = "${firstName}", lastName = "${lastName}", age = ${age}<br><br>
+        <strong>Simple template literals:</strong><br>
+        greeting2: "${greeting2}"<br>
+        info2: "${info2}"<br><br>
+        <strong>With expressions:</strong><br>
+        mathExample: "${mathExample}"<br>
+        upperCase: "${upperCase}"<br><br>
+        <strong>Multi-line string:</strong><br>
+        <pre>${multiLine}</pre>
+        <em>Template literals are much cleaner and more readable!</em>
+    `;
+
+    </script>

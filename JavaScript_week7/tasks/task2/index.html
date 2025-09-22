@@ -1,0 +1,113 @@
+<!-- Build a Simple Calculator
+
+**Requirements:**
+1. Create variables for two numbers
+2. Perform all arithmetic operations (+, -, *, /, %)
+3. Display results using template literals
+4. Include proper labeling and formatting
+5. Use the console to display additional information
+
+**Challenge:** Make it interactive by using `prompt()` to get numbers from the user -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator (Prompt Version)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+    }
+    .calculator {
+      background: #9fd2f0;
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #52acd6;
+    }
+    .results {
+      background-color: #9fd2f0;
+      margin-top: 15px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .results p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Simple Calculator</h2>
+    <button onclick="startCalculator()">Start</button>
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    function startCalculator() {
+      let a = parseFloat(prompt("Enter the first number:"));
+      let b = parseFloat(prompt("Enter the second number:"));
+
+      // if (isNaN(a) || isNaN(b)) {
+      //   alert("Invalid input. Please enter valid numbers!");
+      //   return;
+      // }
+
+      
+      let sum = a + b;
+      let difference = a - b;
+      let product = a * b;
+      let quotient = (b !== 0) ? (a / b) : "Infinity (division by zero)";
+      let remainder = (b !== 0) ? (a % b) : "NaN";
+
+     
+      document.getElementById("results").innerHTML = `
+        <p><strong>Results:</strong></p>
+        <p>${a} + ${b} = ${sum}</p>
+        <p>${a} - ${b} = ${difference}</p>
+        <p>${a} × ${b} = ${product}</p>
+        <p>${a} ÷ ${b} = ${quotient}</p>
+        <p>${a} % ${b} = ${remainder}</p>
+      `;
+
+      alert(`Results:\n
+${a} + ${b} = ${sum}\n
+${a} - ${b} = ${difference}\n
+${a} × ${b} = ${product}\n
+${a} ÷ ${b} = ${quotient}\n
+${a} % ${b} = ${remainder}`);
+
+      console.table({
+        "Number 1": a,
+        "Number 2": b,
+        "Sum": sum,
+        "Difference": difference,
+        "Product": product,
+        "Quotient": quotient,
+        "Remainder": remainder
+      });
+    }
+  </script>
+</body>
+</html>
