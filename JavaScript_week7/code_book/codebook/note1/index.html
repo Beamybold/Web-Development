@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .js-demo{
+            background-color: azure;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: 2px solid #07bff0;
+        }
+
+        .output{
+            background-color: #e0f34e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            border-left: 3px solid #24a724;
+        }
+
+        .demo-button{
+            background-color: #00f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .demo-button:hover{
+            background-color: #0056;
+        } 
+    </style>
+</head>
+<body>
+   <div class="js-demo">
+    <h3>Your First JavaScript Program</h3>
+    <p>Click the button to run your first JavaScript code:</p>
+
+    <button class="demo-button" onclick="runFirstProgram()">Run Hello World</button>
+    <button class="demo-button" onclick="showAlert()">Show Alert</button>
+
+    <div id="first-output" class="output">Output will appear here...</div>
+   </div>
+
+   <script>
+    function runFirstProgram() {
+        document.getElementById('first-output').innerHTML= 'Hello World! This message was created by JavaScript';
+        console.log('Hello from JavaScript alert');
+    }
+   </script>
+
+</body>
+</html>
