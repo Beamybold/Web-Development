@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    .responsive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .responsive-item {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: 1px solid #e9ecef;
+    }
+    
+    .responsive-item h4 {
+        color: #2c3e50;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .responsive-item p {
+        color: #6c757d;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .item-button {
+        background-color: #007bff;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    .item-button:hover {
+        background-color: #0056b3;
+    }
+    
+    .spanning-item {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        background-color: #e9ecef;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .span-item {
+        background-color: #6c757d;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 4px;
+    }
+    
+    .span-wide {
+        grid-column: span 2;
+        background-color: #28a745;
+    }
+    
+    .span-tall {
+        grid-row: span 2;
+        background-color: #dc3545;
+    }
+</style>
+</head>
+<body>
+    
+
+<h3>Auto-fit Responsive Grid</h3>
+
+<div class="grid-demo">
+    <p><strong>Resize your browser to see the grid adapt!</strong></p>
+    <div class="responsive-grid">
+        <div class="responsive-item">
+            <h4>Responsive Card 1</h4>
+            <p>This grid uses auto-fit with minmax(250px, 1fr) to create responsive columns that automatically adjust based on available space.</p>
+            <a href="#" class="item-button">Learn More</a>
+        </div>
+        
+        <div class="responsive-item">
+            <h4>Responsive Card 2</h4>
+            <p>When the container is wide, you'll see multiple columns. When narrow, items stack into fewer columns or a single column.</p>
+            <a href="#" class="item-button">Learn More</a>
+        </div>
+        
+        <div class="responsive-item">
+            <h4>Responsive Card 3</h4>
+            <p>This is much more powerful than traditional float-based or flexbox approaches for creating responsive grids.</p>
+            <a href="#" class="item-button">Learn More</a>
+        </div>
+        
+        <div class="responsive-item">
+            <h4>Responsive Card 4</h4>
+            <p>No media queries needed! The grid automatically handles the responsiveness based on the container size.</p>
+            <a href="#" class="item-button">Learn More</a>
+        </div>
+    </div>
+</div>
+
+<div class="grid-demo">
+    <h4>Grid Item Spanning</h4>
+    <div class="spanning-item">
+        <div class="span-item">Item 1</div>
+        <div class="span-item span-wide">Wide Item (spans 2 columns)</div>
+        <div class="span-item">Item 3</div>
+        <div class="span-item span-tall">Tall Item<br>(spans 2 rows)</div>
+        <div class="span-item">Item 5</div>
+        <div class="span-item">Item 6</div>
+    </div>
+</div>
+    
+</body>
+</html>

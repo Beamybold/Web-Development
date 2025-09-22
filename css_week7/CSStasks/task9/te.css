@@ -1,0 +1,29 @@
+.gallery {
+  display: flex;
+  gap: 20px;
+}
+.gallery img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+.contact {
+  background: #f1f1f1;
+  padding: 40px;
+}
+.contact form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact input, .contact textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.contact button {
+  background: #0077b6;
+  color: white;
+  padding: 10px;
+  border: none;

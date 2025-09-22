@@ -1,0 +1,295 @@
+<style>
+    .animation-demo {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        color:gray;
+    }
+    
+    /* Keyframe Definitions */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            background-color: #007bff;
+        }
+        50% {
+            transform: scale(1.2);
+            background-color: #dc3545;
+        }
+        100% {
+            transform: scale(1);
+            background-color: #007bff;
+        }
+    }
+    
+    @keyframes slideInOut {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        50% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+    
+    /* Animation Classes */
+    .anim-container {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+    
+    .anim-box {
+        width: 80px;
+        height: 80px;
+        background-color: #007bff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    .bounce-anim {
+        animation: bounce 2s infinite;
+    }
+    
+    .spin-anim {
+        animation: spin 3s linear infinite;
+        border-radius: 50%;
+    }
+    
+    .pulse-anim {
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .slide-anim {
+        animation: slideInOut 4s ease-in-out infinite;
+        background-color: #28a745;
+    }
+    
+    /* Loading Spinner */
+    .loader {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+    
+    /* Button with hover animation */
+    .animated-button {
+        background-color: #6f42c1;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .animated-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(111, 66, 193, 0.4);
+    }
+    
+    .animated-button:active {
+        transform: translateY(0);
+    }
+</style>
+
+<h3>CSS Keyframe Animations</h3>
+
+<div class="animation-demo">
+    <h4>Animation Examples</h4>
+    
+    <div class="anim-container">
+        <div class="anim-box bounce-anim">Bounce</div>
+        <div class="anim-box spin-anim">Spin</div>
+        <div class="anim-box pulse-anim">Pulse</div>
+        <div class="anim-box slide-anim">Slide</div>
+    </div>
+</div>
+
+<div class="animation-demo">
+    <h4>Practical Examples</h4>
+    
+    <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+        <div>
+            <p><strong>Loading Spinner:</strong></p>
+            <div class="loader"></div>
+        </div>
+        
+        <div>
+            <p><strong>Animated Button:</strong></p>
+            <button class="animated-button">Hover me!</button>
+        </div>
+    </div>
+</div>
+
+<div class="animation-demo">
+    <h4>Animation Best Practices</h4>
+    <ul>
+        <li><strong>Performance:</strong> Animate transform and opacity for best performance</li>
+        <li><strong>Duration:</strong> Keep animations short (0.2s - 0.5s for interactions)</li>
+        <li><strong>Purpose:</strong> Use animations to enhance UX, not distract</li>
+        <li><strong>Accessibility:</strong> Respect prefers-reduced-motion setting</li>
+    </ul>
+</div>
+
+
+<style>
+    .transition-demo {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        color: gray;
+    }
+    
+    .transition-examples {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    
+    .transition-box {
+        width: 120px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    .hover-color {
+        background-color: #007bff;
+        transition: background-color 0.3s ease;
+    }
+    
+    .hover-color:hover {
+        background-color: #dc3545;
+    }
+    
+    .hover-transform {
+        background-color: #28a745;
+        transition: transform 0.3s ease;
+    }
+    
+    .hover-transform:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    .hover-shadow {
+        background-color: #6f42c1;
+        transition: box-shadow 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .hover-shadow:hover {
+        box-shadow: 0 8px 20px rgba(111, 66, 193, 0.4);
+    }
+    
+    .hover-multiple {
+        background-color: #fd7e14;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .hover-multiple:hover {
+        background-color: #ffc107;
+        color: black;
+        border-color: #fd7e14;
+        transform: translateY(-3px);
+    }
+    
+    .timing-demo {
+        display: flex;
+        gap: 15px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+    
+    .timing-box {
+        width: 80px;
+        height: 80px;
+        background-color: #17a2b8;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 1s;
+    }
+    
+    .timing-box:hover {
+        transform: translateX(50px);
+    }
+</style>
+
+<h3>CSS Transitions in Action</h3>
+
+<div class="transition-demo">
+    <h4>Hover Effects with Transitions</h4>
+    <p><strong>Hover over each box to see the transition:</strong></p>
+    
+    <div class="transition-examples">
+        <div class="transition-box hover-color">
+            Color Change<br>
+            <small>0.3s ease</small>
+        </div>
+        
+        <div class="transition-box hover-transform">
+            Transform<br>
+            <small>scale + rotate</small>
+        </div>
+        
+        <div class="transition-box hover-shadow">
+            Box Shadow<br>
+            <small>0.3s ease</small>
+        </div>
+        
+        <div class="transition-box hover-multiple">
+            Multiple Props<br>
+            <small>all 0.3s ease</small>
+        </div>
+    </div>
+</div>

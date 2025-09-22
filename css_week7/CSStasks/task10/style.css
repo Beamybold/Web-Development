@@ -1,0 +1,122 @@
+
+body {
+  margin: 0;
+  font-family:Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 247, 255);
+  color: black
+}
+
+header {
+  position: sticky;
+  width: 100%;
+  color: white;
+  top: 0;
+  background: rgb(231, 25, 204);
+  padding: 10px;
+  z-index: 1000;
+  cursor: pointer;
+  
+}
+h1{
+ align-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: right;
+}
+
+.nav-links li a{
+  text-decoration: none;
+  color: white;
+  transition: color;
+  
+}
+
+.nav-links li a:hover {
+  color: #c589aa;
+}
+
+.hero {
+  text-align: center;
+  padding: 25px;
+  background-color: rgb(245, 205, 245);
+  line-height: 1.5;
+ 
+}
+
+.about, .skills{
+  border-bottom: 1px solid rgb(243, 78, 221);
+  text-align: center;
+}
+
+.skills{
+  background-color: rgb(245, 205, 245);
+}
+
+
+
+
+.progress {
+  width: 68%;
+  height: 100%;
+  background: #007bff;
+  animation: fillProgress 4s forwards;
+}
+
+@keyframes fillProgress {
+  to { width: 70%; }
+
+}
+.btn {
+  background: rgb(231, 25, 204);
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn:hover{
+  transition: transform 0.3s;
+
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+.contact {
+  background: #e6d2dd;
+  padding: 40px;
+}
+.contact form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact input, .contact textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.contact button {
+  background: rgb(231, 25, 204);
+  color: white;
+  padding: 10px;
+  border: none;
+}
+
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: rgb(231, 25, 204);
+  color: #fff;
+}
+

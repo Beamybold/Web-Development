@@ -1,0 +1,60 @@
+<!-- Create a "Magazine Layout" using CSS Grid
+
+**Requirements:**
+- Header spanning full width
+- Featured article taking 2/3 width on left
+- Sidebar with 3 smaller articles stacked on right
+- Advertisement banner below featured article
+- Footer spanning full width
+- Use grid-template-areas for clean code
+- Include proper spacing and visual hierarchy
+
+**Bonus Challenges:**
+- Make one small article span 2 rows in the sidebar
+- Add a navigation bar in the header
+- Use auto-fit for responsive article cards in a section -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Magazine Layout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h2>Magazine Layout</h2>
+
+  <div class="grid-container">
+    <header class="header">
+      <nav>
+        <h1>My Magazine</h1>
+        <ul>
+          <li>Home</li>
+          <li>Headlines</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="featured">
+      <h2>Featured Article</h2>
+      <p>Location: Remote (Anywhere) Salary: $55K–$75K/year Job Type: Full-Time Schedule: Flexible. Location: Remote (Anywhere) Salary: $55K–$75K/year Job Type: Full-Time Schedule: FlexiblLocation: Remote (Anywhere) Salary: $55K–$75K/year Job Type: Full-Time Schedule: Flexibl</p>
+    </main>
+
+    <aside class="sidebar">
+      <div class="small-article">Small Article 1<p>Location: Remote (Anywhere) Salary: $55K–$75K/year Job Type: Full-Time Schedule: Flexible. Location: Remote (Anywhere) Salary: $55K–$75K/year</p> </div>
+      <div class="small-article">Small Article 2<p>Location: Remote (Anywhere) Salary: $55K–$75K/year r</p></div>
+      <div class="small-article tall">Small Article 3 (2 rows)<p>Location: Remote (Anywhere) Salary: $55K–$75K/year Job Type: Full-Time Schedule: Flexible. </p></div>
+    </aside>
+
+    <div class="ad">Advertisement Banner</div>
+
+    <footer class="footer">
+      <p><i>2025 My Magazine</i></p>
+    </footer>
+  </div>
+
+</body>
+</html>
