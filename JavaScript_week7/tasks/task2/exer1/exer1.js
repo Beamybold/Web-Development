@@ -1,7 +1,7 @@
 // Simple Grading System  
 
 // **Requirements:**  
-// 1. Create a function `getGrade(score)`  
+// 1. Create a function   
 // 2. Use if/else if statements to assign grades:  
 //    - 90+ → "A"  
 //    - 80–89 → "B"  
@@ -13,12 +13,12 @@
 // **Challenge:** Add a condition for perfect scores (100) that returns `"Outstanding! Grade: A+"`
 
 
-function getGrade() {
+function getGrade() { //function `getGrade(score)` 
    let score =  Number(prompt("What is your score: "))
     
-    //console.log("You have an excellent result")
+    //Use if/else if statements to assign grades
     if (score == 100){
-        console.log (`Outstanding! Grade: A+`);
+        console.log (`Outstanding! Grade: A+`); //condition for a perfect scores (100) that returns `"Outstanding! Grade: A+"`
     }else if (score >= 90){
         console.log (`Score: ${score} -> Grade: A`);
     }else if (score >= 80){
@@ -27,7 +27,7 @@ function getGrade() {
         console.log (`Score: ${score} -> Grade: C`);
     }else if (score >= 60){
         console.log (`Score: ${score} -> Grade: D`);
-    }else {
+    }else  {
         console.log (`Score: ${score} -> Grade: F`);
     }  
 
@@ -51,7 +51,7 @@ function getGrade() {
 
 
 // Function that calculates discounts
-function calculateDiscount(price, customerType, isFirstTime) {
+function calculateDiscount(price, customerType, isFirstPurchase) {
     let discount = 0;
     
     if (customerType === "student") {
@@ -63,24 +63,68 @@ function calculateDiscount(price, customerType, isFirstTime) {
     }
     
     // Additional discount for first-time customers
-    if (isFirstTime) {
+    if (isFirstPurchase)  {
         discount += 0.05; // Extra 5%
     }
     
-    let finalPrice = price * (1 - discount);
+    let finalPrice = price * (1 - discount); //To calculate final price after discount
     return {
         originalPrice: price,
-        discountPercent: discount * 100,
+        discountPercent: discount.toFixed(2) * 100,
         finalPrice: finalPrice.toFixed(2)
     };
 }
 
 // Test discount function
-let result = calculateDiscount(100, "student", true);
+let result = calculateDiscount(1000, "senior", true);
 console.log("Price calculation:");
 console.log(`Original: $${result.originalPrice}`);
 console.log(`Discount: ${result.discountPercent}%`);
 console.log(`Final price: $${result.finalPrice}`);
-```
 
-This shows how functions and conditionals work together to create smart, decision-making code!
+
+// **Task:** Weather Advisor  
+
+// **Requirements:**  
+// 1. Write a function `weatherAdvice(temperature, isRaining)`  
+// 2. Use if/else if to return advice:  
+//    - < 32 and raining → "Freezing rain! Stay inside!"  
+//    - < 32 → "Very cold, wear a heavy coat."  
+//    - 32–60 → "Chilly, bring a jacket."  
+//    - 60–80 → "Nice weather!"  
+//    - `>` 80 → "It's hot, stay hydrated!"  
+// 3. Return the advice as a string  
+
+// **Challenge:** Add a ternary operator for quick advice like:  
+//    `"Bring an umbrella"` if raining, otherwise `"No umbrella needed"`.
+
+
+
+// Function that gives weather advice
+function weatherAdvice(temperature, isRaining) {
+ 
+//Using if/else if to return advice
+if (temperature < 32 && isRaining) {
+    console.log("Freezing rain! Stay inside!");
+} else if (temperature < 32) {
+    console.log("Very cold! Wear a heavy coat!");
+} else if (temperature <= 32 && temperature <= 60) {
+    console.log("Chilly, bring a jacket.");
+} else if (temperature <= 60 && temperature <= 80) {
+    console.log("Nice weather!");
+} else if (temperature > 80) {
+    console.log("It's hot, stay hydrated!");
+} else {
+    console.log("It's warm! T-shirt weather!");
+}
+}
+
+//Adding a tenary operator
+isRaining = true
+
+
+let weatherAdvisor = isRaining ? "Bring an umbrella" : "No umbrella needed";
+console.log(`Weather Advice: ${isRaining}`)
+
+
+
