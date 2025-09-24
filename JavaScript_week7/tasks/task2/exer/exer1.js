@@ -148,8 +148,10 @@ console.log(weatherAdvice(78, false))
 // **Challenge:** Add a condition that blocks withdrawals over 500 at once.
 
 //function for ATM withdrawal
-function atm(balance, action, amount) {
-    
+function atm() {
+ let action(prompt("What do you want to do: "));
+   
+
   if (action === "withdraw") { //To check the condition if action is withdraw
     if (amount > 500) { //condition to block withdrawal over 500 at once
       return "Withdrawal blocked: You cannot withdraw more than 500 at once."; 
