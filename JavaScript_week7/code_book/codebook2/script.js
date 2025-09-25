@@ -81,13 +81,88 @@ let number = [1, 2, 3, 4, 5, 6,];
 let name = ["John", "Paul", "Temi", "Tola"];
 console.log("Original numbers:", number);
 console.log("Original names:", name);
-console.log("First 3 items:", number.slice(0, 3)); //0-3 items 
+console.log("First 3 items:", number.slice(0, 3)); //start on 0 items stop befoe the 3rd element 
 console.log("Last 2 numbers:", number.slice(-2));
 
 console.log("Last 2 numbers:", number.slice(1, 4));
 
 
+// splice() - Remove/add items at specific position (changes original)
+let fruit = ["apple", "banana", "orange", "grape", "kiwi"];
+console.log("Original fruits:", fruit);
 
+// Remove 2 items starting at index 1
+let removed = fruit.splice(1, 2);
+console.log("Removed items:", removed);
+console.log("After removal:", fruit);
+
+// Add items at index 1
+fruit.splice(1, 0, "mango", "pineapple"); // Remove 0, add 2 items
+console.log("After adding:", fruit);
+
+console.log(""); // Empty line
+
+//Loops
+//Loops allow you to repeat code multiple times without writing the same code over and over. They're essential for processing arrays and automating repetitive tasks.
+
+// Common Loop Types:**
+// 1. **for loop** - When you know how many times to repeat
+// 2. **while loop** - When you repeat based on a condition
+// 3. **for...of loop** - When you want to go through each array item
+// 4. **forEach** - Array method for processing each item
+
+// Basic for loop structure:
+// for (initialization; condition; increment) {
+//     code to repeat
+// }
+
+
+// Simple counting loop
+console.log("Counting from 1 to 5:");
+for (let i = 1; i <= 5; i++) {
+    console.log("Count:", i);
+}
+
+console.log(""); // Empty line
+
+// Counting backwards
+console.log("Countdown from 5 to 1:");
+for (let i = 5; i >= 1; i--) {
+    console.log("Countdown:", i);
+}
+console.log("Blast off!");
+
+console.log(""); // Empty line
+
+// Using loops with calculations
+console.log("Multiplication table for 3:");
+for (let i = 1; i <= 12; i++) {
+    let result = 3 * i;
+    console.log(`3 × ${i} = ${result}`);
+}
+
+console.log(""); // Empty line
+
+// Loop with different step sizes
+console.log("Even numbers from 2 to 10:");
+for (let i = 2; i <= 10; i += 2) {  // i += 2 means i = i + 2
+    console.log("Even number:", i);
+}
+
+console.log(""); // Empty line
+
+// Loop through an array using index
+let newColors = ["red", "green", "blue", "yellow"];
+console.log("Colors in the array:");
+for (let i = 0; i <newColors.length; i++) {
+    console.log(`Color ${i + 1}: ${newColors[i]}`);
+}
+
+// **For Loop Parts:**
+// - **Initialization**: `let i = 1` - Set up counter variable
+// - **Condition**: `i <= 5` - Keep looping while this is true
+// - **Increment**: `i++` - Change counter each time
+// - **Body**: Code inside `{}` - What to repeat
 
 
 
