@@ -10,5 +10,5 @@
 
 
 
-  console.log(personalAssistant(20, "rainy", "weekend"));
+console.log(personalAssistant(20, "rainy", "weekend"));
 console.log(personalAssistant(12, "cloudy", "holiday"));
