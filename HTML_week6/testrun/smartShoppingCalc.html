@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Shopping Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f9;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4CAF50;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    pre {
+      background: #eef;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Smart Shopping Calculator</h1>
+  <div class="container">
+    <label>Price:</label>
+    <input type="number" id="price" placeholder="e.g. 50">
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity" placeholder="e.g. 3">
+
+    <label>Discount (%):</label>
+    <input type="number" id="discount" placeholder="e.g. 10">
+
+    <label>Location:</label>
+    <select id="location">
+      <option value="NY">New York</option>
+      <option value="CA">California</option>
+      <option value="TX">Texas</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Weight (kg):</label>
+    <input type="number" id="weight" placeholder="e.g. 2.5">
+
+    <label>Distance (km):</label>
+    <input type="number" id="distance" placeholder="e.g. 100">
+
+    <label>Membership Level:</label>
+    <select id="membership">
+      <option value="Gold">Gold</option>
+      <option value="Silver">Silver</option>
+      <option value="Bronze">Bronze</option>
+      <option value="None">None</option>
+    </select>
+
+    <button onclick="generateReceipt()">Calculate</button>
+
+    <pre id="receipt"></pre>
+  </div>
+
+  <script>
+    function calculateProductTotal(price, quantity, discount) {
+      if (price < 0 || quantity < 0 || discount < 0 || discount > 100) return "Invalid product input";
+      let subtotal = price * quantity;
+      let discountAmount = subtotal * (discount / 100);
+      return subtotal - discountAmount;
+    }
+
+    function calculateTax(total, location) {
+      let taxRate = location === "NY" ? 0.08875 :
+                    location === "CA" ? 0.0725 :
+                    location === "TX" ? 0.0625 : 0.05;
+      return total * taxRate;
+    }
+
+    function calculateShipping(weight, distance) {
+      if (weight <= 0 || distance <= 0) return "Invalid shipping input";
+      return 5 + (0.1 * weight) + (0.05 * distance);
+    }
+
+    function applyMembershipDiscount(total, level) {
+      let discount = level === "Gold" ? 15 :
+                     level === "Silver" ? 10 :
+                     level === "Bronze" ? 5 : 0;
+      return total - (total * discount / 100);
+    }
+
+    function generateReceipt() {
+      let price = parseFloat(document.getElementById("price").value);
+      let quantity = parseInt(document.getElementById("quantity").value);
+      let discount = parseFloat(document.getElementById("discount").value);
+      let location = document.getElementById("location").value;
+      let weight = parseFloat(document.getElementById("weight").value);
+      let distance = parseFloat(document.getElementById("distance").value);
+      let membership = document.getElementById("membership").value;
+
+      let productTotal = calculateProductTotal(price, quantity, discount);
+      if (typeof productTotal === "string") return document.getElementById("receipt").textContent = productTotal;
+
+      let tax = calculateTax(productTotal, location);
+      let shipping = calculateShipping(weight, distance);
+      if (typeof shipping === "string") return document.getElementById("receipt").textContent = shipping;
+
+      let preDiscountTotal = productTotal + tax + shipping;
+      let finalTotal = applyMembershipDiscount(preDiscountTotal, membership);
+      let shippingNote = (membership === "Gold" && preDiscountTotal > 100) ? "Free shipping applied!" : "Standard shipping applied.";
+
+      let receipt = `
+🧾 Final Receipt
+----------------------------
+Item Total:        $${productTotal.toFixed(2)}
+Tax (${location}): $${tax.toFixed(2)}
+Shipping:          $${shipping.toFixed(2)}
+Membership:        ${membership}
+----------------------------
+Total Before Discount: $${preDiscountTotal.toFixed(2)}
+Final Total:            $${finalTotal.toFixed(2)}
+Note: ${shippingNote}
+      `;
+      document.getElementById("receipt").textContent = receipt;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Function Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-light: #f0f4f8;
+      --bg-dark: #1e1e2f;
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+      --card-light: #fff;
+      --card-dark: #2c2c3c;
+      --accent: #3498db;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #ddd;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      margin: 2px;
+    }
+
+    .tab.active {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .section {
+      display: none;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .toggle-dark {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: #444;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧪 Function Playground</h1>
+</header>
+
+<div class="toggle-dark" onclick="toggleDarkMode()">🌗 Toggle Dark Mode</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">🔐 Password</div>
+  <div class="tab" onclick="showTab(1)">📊 Percentage</div>
+  <div class="tab" onclick="showTab(2)">💰 Interest</div>
+  <div class="tab" onclick="showTab(3)">🎓 Graduation</div>
+  <div class="tab" onclick="showTab(4)">🔄 Reverse</div>
+</div>
+
+<div class="section active">
+  <h2>🔐 Strong Password Checker</h2>
+  <input type="text" id="passwordInput" placeholder="Enter password">
+  <button onclick="checkPassword()">Check</button>
+  <p id="passwordResult"></p>
+</div>
+
+<div class="section">
+  <h2>📊 Format Percentage</h2>
+  <input type="number" id="percentInput" placeholder="Enter number">
+  <button onclick="formatPercent()">Format</button>
+  <p id="percentResult"></p>
+</div>
+
+<div class="section">
+  <h2>💰 Compound Interest</h2>
+  <input type="number" id="principal" placeholder="Principal">
+  <input type="number" id="rate" placeholder="Rate (e.g. 0.05)">
+  <input type="number" id="years" placeholder="Years">
+  <button onclick="calculateInterest()">Calculate</button>
+  <p id="interestResult"></p>
+</div>
+
+<div class="section">
+  <h2>🎓 Can Graduate?</h2>
+  <input type="number" id="credits" placeholder="Credits">
+  <input type="number" id="gpa" placeholder="GPA">
+  <button onclick="checkGraduation()">Check</button>
+  <p id="graduateResult"></p>
+</div>
+
+<div class="section">
+  <h2>🔄 Reverse Words & Capitalize</h2>
+  <input type="text" id="sentenceInput" placeholder="Enter sentence">
+  <button onclick="reverseSentence()">Reverse</button>
+  <p id="reverseResult"></p>
+</div>
+
+<script>
+  function showTab(index) {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
+    tabs.forEach((tab, i) => tab.classList.toggle('active', i === index));
+    sections.forEach((sec, i) => sec.classList.toggle('active', i === index));
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  function isStrongPassword(password) {
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    const isLongEnough = password.length >= 8;
+    return isLongEnough && hasNumber && hasSpecialChar;
+  }
+
+  function formatPercentage(value) {
+    return value.toFixed(1) + "%";
+  }
+
+  function calculateCompoundInterest(principal, rate, years) {
+    const amount = principal * Math.pow(1 + rate, years);
+    return amount.toFixed(2);
+  }
+
+  function canGraduate(credits, gpa) {
+    return credits >= 120 && gpa >= 2.0;
+  }
+
+  function reverseWords(sentence) {
+    return sentence
+      .split(" ")
+      .reverse()
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
+  function checkPassword() {
+    const input = document.getElementById("passwordInput").value;
+    const result = isStrongPassword(input)
+      ? "✅ Strong Password"
+      : "❌ Weak Password (min 8 chars, number & special char)";
+    document.getElementById("passwordResult").innerText = result;
+    localStorage.setItem("passwordCheck", result);
+  }
+
+  function formatPercent() {
+    const value = parseFloat(document.getElementById("percentInput").value);
+    const result = formatPercentage(value);
+    document.getElementById("percentResult").innerText = result;
+    localStorage.setItem("percentResult", result);
+  }
+
+  function calculateInterest() {
+    const p = parseFloat(document.getElementById("principal").value);
+    const r = parseFloat(document.getElementById("rate").value);
+    const t = parseFloat(document.getElementById("years").value);
+    const result = calculateCompoundInterest(p, r, t);
+    document.getElementById("interestResult").innerText = "Amount: ₦" + result;
+    localStorage.setItem("interestResult", result);
+  }
+
+  function checkGraduation() {
+    const credits = parseInt(document.getElementById("credits").value);
+    const gpa = parseFloat(document.getElementById("gpa").value);
+    const result = canGraduate(credits, gpa)
+      ? "🎓 You can graduate!"
+      : "🚫 Not eligible yet.";
+    document.getElementById("graduateResult").innerText = result;
+    localStorage.setItem("graduateResult", result);
+  }
+
+  function reverseSentence() {
+    const sentence = document.getElementById("sentenceInput").value;
+    const result = reverseWords(sentence);
+    document.getElementById("reverseResult").innerText = result;
+    localStorage.setItem("reverseResult", result);
+  }
+
+  // Load saved results
+  window.onload = () => {
+    document.getElementById("passwordResult").innerText = localStorage.getItem("passwordCheck") || "";
+    document.getElementById("percentResult").innerText = localStorage.getItem("percentResult")
