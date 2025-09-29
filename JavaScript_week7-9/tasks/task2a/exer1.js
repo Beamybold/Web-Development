@@ -13,26 +13,26 @@
 // **Challenge:** Add a condition for perfect scores (100) that returns `"Outstanding! Grade: A+"`
 
 
-// function getGrade(){ //function `getGrade(score)` 
-//    let score =  number(prompt("What is your score: "))
+function getGrade(){ //function `getGrade(score)` 
+   let score =  number(prompt("What is your score: "))
     
-//     //Use if/else if statements to assign grades
-//     if (score === 100){
-//         console.log (`Outstanding! Grade: A+`); //condition for a perfect scores (100) that returns `"Outstanding! Grade: A+"`
-//     }else if (score > 90 && score === 99){
-//         console.log (`Score: ${score} -> Grade: A`);
-//     }else if (score >= 80 && score === 89){
-//         console.log (`Score: ${score} -> Grade: B`);
-//     }else if (score >= 70 && score === 79){
-//         console.log (`Score: ${score} -> Grade: C`);
-//     }else if (score >= 60 && score === 69){
-//         console.log (`Score: ${score} -> Grade: D`);
-//     }else  if (score < 60) {
-//         console.log (`Score: ${score} -> Grade: F`);
-//     }else {
-//       console.log("Invalid score");
-//     } 
-// }
+    //Use if/else if statements to assign grades
+    if (score === 100){
+        console.log (`Outstanding! Grade: A+`); //condition for a perfect scores (100) that returns `"Outstanding! Grade: A+"`
+    }else if (score > 90 && score === 99){
+        console.log (`Score: ${score} -> Grade: A`);
+    }else if (score >= 80 && score === 89){
+        console.log (`Score: ${score} -> Grade: B`);
+    }else if (score >= 70 && score === 79){
+        console.log (`Score: ${score} -> Grade: C`);
+    }else if (score >= 60 && score === 69){
+        console.log (`Score: ${score} -> Grade: D`);
+    }else  if (score < 60) {
+        console.log (`Score: ${score} -> Grade: F`);
+    }else {
+      console.log("Invalid score");
+    } 
+}
 
 
 // //2.  Discount Calculator  
@@ -52,43 +52,43 @@
 
 
 // Function that calculates discounts
-// function calculateDiscount() {
-//   let price =  number(prompt("Enter price: "));
-//   let customerType = String(prompt(`Are you a : \n1. Student \n2. Senior \n3. Employee`));
-//   let isFirstPurchase = String(prompt(`Is this your first purchase? \n1. Yes \n2. No`));
-//     let discount = 0;
-//     if (customerType === "1") {
-//         discount = 0.10; // 10% discount
-//         console.log("Your discount is 10%");
-//     } else if (customerType === "2") {
-//         discount = 0.15; // 15% discount
-//         console.log("Your discount is 15%");
+function calculateDiscount() {
+  let price =  number(prompt("Enter price: "));
+  let customerType = String(prompt(`Are you a : \n1. Student \n2. Senior \n3. Employee`));
+  let isFirstPurchase = String(prompt(`Is this your first purchase? \n1. Yes \n2. No`));
+    let discount = 0;
+    if (customerType === "1") {
+        discount = 0.10; // 10% discount
+        console.log("Your discount is 10%");
+    } else if (customerType === "2") {
+        discount = 0.15; // 15% discount
+        console.log("Your discount is 15%");
 
-//     } else if (customerType === "3") {
-//         discount = 0.20; // 20% discount
-//         console.log("Your discount is 20%");
+    } else if (customerType === "3") {
+        discount = 0.20; // 20% discount
+        console.log("Your discount is 20%");
 
-//     }else{
-//       console.log("Invalid input");
-//     }
+    }else{
+      console.log("Invalid input");
+    }
     
-//     // Additional discount for first-time customers
-//     if (isFirstPurchase === "1")  {
-//         discount += 0.05; // Extra 5%
-//         console.log("This is your first purchase! You have an extra 5%")
-//     }else {
-//       console.log("Thanks for your patronage")
-//     }
+    // Additional discount for first-time customers
+    if (isFirstPurchase === "1")  {
+        discount += 0.05; // Extra 5%
+        console.log("This is your first purchase! You have an extra 5%")
+    }else {
+      console.log("Thanks for your patronage")
+    }
 
-//     //a full receipt showing original price, discount percent, and final price.
+    //a full receipt showing original price, discount percent, and final price.
 
-// let finalPrice = price * (1 - discount); //To calculate final price after discount
-// console.log (`\n
-//         originalPrice: ${price},
-//         discountPercent: ${discount.toFixed(2) * 100},
-//         finalPrice: ${finalPrice.toFixed(2)}`)
-//     console.log(`You are paying ${finalPrice}`)
-// }
+let finalPrice = price * (1 - discount); //To calculate final price after discount
+console.log (`\n
+        originalPrice: ${price},
+        discountPercent: ${discount.toFixed(2) * 100},
+        finalPrice: ${finalPrice.toFixed(2)}`)
+    console.log(`You are paying ${finalPrice}`)
+}
 
 
 
@@ -110,39 +110,39 @@
 
 
 
-// // // Function that gives weather advice
-// function weatherAdvice() {
-//     let temperature = Number(prompt("Enter temperature: "));let isRaining = String(prompt(`Is it raining? \n1. Yes \n2. No`));
-//     let advice = ""
+// // Function that gives weather advice
+function weatherAdvice() {
+    let temperature = Number(prompt("Enter temperature: "));let isRaining = String(prompt(`Is it raining? \n1. Yes \n2. No`));
+    let advice = ""
  
-// //Using if/else if to return advice
-// if (temperature < 32 && isRaining === "1") {
-//     console.log("Freezing rain! Stay inside!");
-// } else if (temperature < 32 ) {
-//     advice = "Very cold! Wear a heavy coat!";
-// } else if (temperature >= 32 && temperature <= 60 && isRaining === "2" ) {
-//     console.log("Chilly, bring a jacket.");
-// } else if (temperature > 60 && temperature <= 80) {
-//     console.log("Nice weather!");
-// } else if (temperature > 80 && isRaining === "2") {
-//     console.log("It's hot, stay hydrated!");
-// } else {
-//     console.log("It's warm! T-shirt weather!");
-// }
+//Using if/else if to return advice
+if (temperature < 32 && isRaining === "1") {
+    console.log("Freezing rain! Stay inside!");
+} else if (temperature < 32 ) {
+    advice = "Very cold! Wear a heavy coat!";
+} else if (temperature >= 32 && temperature <= 60 && isRaining === "2" ) {
+    console.log("Chilly, bring a jacket.");
+} else if (temperature > 60 && temperature <= 80) {
+    console.log("Nice weather!");
+} else if (temperature > 80 && isRaining === "2") {
+    console.log("It's hot, stay hydrated!");
+} else {
+    console.log("It's warm! T-shirt weather!");
+}
 
 
-// //Adding a tenary operator
-// advice += "" + (isRaining = advice ? "Bring an umbrella" : "No umbrella needed");
-// if (isRaining == true) {
-//     console.log(advice==true);
-// }else {
-//     console.log(advice==false)
-// }
-// }
+//Adding a tenary operator
+advice += "" + (isRaining = advice ? "Bring an umbrella" : "No umbrella needed");
+if (isRaining == true) {
+    console.log(advice==true);
+}else {
+    console.log(advice==false)
+}
+}
 
-// console.log(advice(85, true))
-// console.log(weatherAdvice(35, true))
-// console.log(weatherAdvice(78, false))
+console.log(advice(85, true))
+console.log(weatherAdvice(35, true))
+console.log(weatherAdvice(78, false))
 
 
 
@@ -160,34 +160,34 @@
 
 // // **Challenge:** Add a condition that blocks withdrawals over 500 at once.
 
-// // //function for ATM withdrawal
-// function atm() {
-//  let balance = 1000;
-//  let action = String(prompt(`Select: \n1. Withdraw \n2. Deposit `));
-//  let amount = Number(prompt("Enter the amount: "))
+// //function for ATM withdrawal
+function atm() {
+ let balance = 1000;
+ let action = String(prompt(`Select: \n1. Withdraw \n2. Deposit `));
+ let amount = Number(prompt("Enter the amount: "))
  
    
 
-//   if (action === "1") { //To check the condition if action is withdraw
-//     if (amount > 500) { //condition to block withdrawal over 500 at once
-//       console.log("Withdrawal blocked: You have exceeded the withdrawal amount."); 
-//     } else if (amount > balance) { 
-//       console.log(`Insufficient funds. Your balance is ${balance}`);
-//     } else {
-//       balance -= amount;
-//       console.log(`Withdrawal successful. New balance: ${balance}`);
-//     }
-//   } 
+  if (action === "1") { //To check the condition if action is withdraw
+    if (amount > 500) { //condition to block withdrawal over 500 at once
+      console.log("Withdrawal blocked: You have exceeded the withdrawal amount."); 
+    } else if (amount > balance) { 
+      console.log(`Insufficient funds. Your balance is ${balance}`);
+    } else {
+      balance -= amount;
+      console.log(`Withdrawal successful. New balance: ${balance}`);
+    }
+  } 
   
-//   else if (action === "2") { //condition for deposit
-//     balance += amount;
-//     console.log(`Deposit successful. New balance: ${balance}.`);
-//   } 
+  else if (action === "2") { //condition for deposit
+    balance += amount;
+    console.log(`Deposit successful. New balance: ${balance}.`);
+  } 
   
-//   else {
-//     console.log(`Invalid input, choose withdraw or deposit.`);
-//   }
-// }
+  else {
+    console.log(`Invalid input, choose withdraw or deposit.`);
+  }
+}
  
 
 

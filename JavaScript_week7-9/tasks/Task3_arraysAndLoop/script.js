@@ -92,122 +92,79 @@
 
 //3. Movie ratings System
 
-// 1. Create two arrays
-let movies = ["Alakada", "Tundum","Tehillah", "Famous", "U-Turn", "Greatness"];
-let ratings = [8.8, 9.2, 7.3, 9.8, 7.7, 7.8];
+// // 1. Create two arrays
+// let movies = ["Alakada", "Tundum","Tehillah", "Famous", "U-Turn", "Greatness"];
+// let ratings = [8.8, 9.2, 7.3, 9.8, 7.7, 7.8];
 
-// 2. Function to add a movie and its rating
-function addMovie(movie, rating) {
-  movies.push(movie);
-  ratings.push(rating); 
-}
-addMovie("US", 6.3)
-addMovie("Hostage", 8.6)
-console.log(movies)
-console.log(ratings)
-console.log("")
+// // 2. Function to add a movie and its rating
+// function addMovie(movie, rating) {
+//   movies.push(movie);
+//   ratings.push(rating); 
+// }
+// addMovie("US", 6.3)
+// addMovie("Hostage", 8.6)
+// console.log(movies)
+// console.log(ratings)
+// console.log("")
 
-// 3. Function to calculate average rating
-function getAverageRating() {
-  let total = 0 ;
-  for(let i = 0; i < ratings.length; i++){
-    total += ratings[i];
-  }
-  return total / ratings.length;
-}
-console.log(`The average rating is ${getAverageRating().toFixed(2)}`)
-console.log("")
+// // 3. Function to calculate average rating
+// function getAverageRating() {
+//   let total = 0 ;
+//   for(let i = 0; i < ratings.length; i++){
+//     total += ratings[i];
+//   }
+//   return total / ratings.length;
+// }
+// console.log(`The average rating is ${getAverageRating().toFixed(2)}`)
+// console.log("")
 
-// 4. Function to get the top-rated movie
-function getTopMovie() {
-  let highestRating = ratings[0]
-  let topMovie = movies[0]
-  for (let i = 1; i < movies.length; i++){
-    if (ratings[i] > highestRating){
-      highestRating = ratings[i];
-      topMovie = movies[i]
-    }    
-  }
-  return topMovie;
-}
-console.log(`The highest rated movie is ${getTopMovie()} `)
-console.log("")
+// // 4. Function to get the top-rated movie
+// function getTopMovie() {
+//   let highestRating = ratings[0]
+//   let topMovie = movies[0]
+//   for (let i = 1; i < movies.length; i++){
+//     if (ratings[i] > highestRating){
+//       highestRating = ratings[i];
+//       topMovie = movies[i]
+//     }    
+//   }
+//   return topMovie;
+// }
+// console.log(`The highest rated movie is ${getTopMovie()} `)
+// console.log("")
 
-// 5. Print summary of all movies
-function printSummary() {
-  console.log("Movie Ratings Summary:");
-  for (let i = 0; i < movies.length; i++) {
-    console.log(`${movies[i]}: ${ratings[i]}`);
+// // 5. Print summary of all movies
+// function printSummary() {
+//   console.log("Movie Ratings Summary:");
+//   for (let i = 0; i < movies.length; i++) {
+//     console.log(`${movies[i]}: ${ratings[i]}`);
     
-  }
-  console.log("")
-  console.log(`Average Rating: ${getAverageRating()}`);
-  console.log("")
-  console.log(`Top Movie: ${getTopMovie()}`);
-  console.log("");
+//   }
+//   console.log("")
+//   console.log(`Average Rating: ${getAverageRating()}`);
+//   console.log("")
+//   console.log(`Top Movie: ${getTopMovie()}`);
+//   console.log("");
 
-}
+// }
 
-// Challenge: Sort movies by rating (high → low)
-function sortedMoviesbyRating() {
-  let combined = [];
-  for(let i = 0; i < movies.length; i++){
-    combined.push({name:movies[i], rating: ratings[i]});
-  }
-  combined.sort((a, b) => b.rating - a.rating);
+// // Challenge: Sort movies by rating (high → low)
+// function sortedMoviesbyRating() {
+//   let combined = [];
+//   for(let i = 0; i < movies.length; i++){
+//     combined.push({name:movies[i], rating: ratings[i]});
   
-}
-  
- console.log("Sorted Movies by Rating:")
-
-
-
-
-
-
-// // function printSortedMovies() {
-//   let combined = movies.map((movie, i) => ({ movie, rating: ratings[i] }));
+//   }
 //   combined.sort((a, b) => b.rating - a.rating);
-//   console.log("🔢 Sorted Movies by Rating:");
-//   combined.forEach(item => {
-//     console.log(`- ${item.movie}: ${item.rating}`);
-//   });
-
-// // 🔄 Update a movie's rating
-// function updateRating(movie, newRating) {
-//   let index = movies.indexOf(movie);
-//   if (index !== -1) {
-//     ratings[index] = newRating;
-//     console.log(`Updated "${movie}" to new rating: ${newRating}`);
-//   } else {
-//     console.log(`Movie "${movie}" not found.`);
+//   for(let item of combined){
+//     console.log(item.name, "Rating", item.rating)
 //   }
-// }
-
-// // ❌ Delete a movie
-// function deleteMovie(movie) {
-//   let index = movies.indexOf(movie);
-//   if (index !== -1) {
-//     movies.splice(index, 1);
-//     ratings.splice(index, 1);
-//     console.log(`Deleted "${movie}" from the list.`);
-//   } else {
-//     console.log(`Movie "${movie}" not found.`);
-//   }
-// }
-
-// // Example usage
-// addMovie("Inception", 9);
-// addMovie("Titanic", 8.5);
-// addMovie("Interstellar", 9.3);
-// addMovie("The Matrix", 8.7);
-
-// updateRating("Titanic", 9.1);
-// deleteMovie("The Matrix");
-
-// printSummary();
-// printSortedMovies();
-
+  
+// } 
+  
+//   console.log("Sorted Movies by Rating:");
+//   console.log(sortedMoviesbyRating());
+//   console.log(" ");
 
 
 
@@ -215,40 +172,66 @@ function sortedMoviesbyRating() {
 
 
 //4. Student Report System
+// Array to store student records
+let students = [];
 
-// // Array to store student records
-// let students = [];
+//  1. Function to add Student
+function addStudent(name, grade) {
+  if (grade < 0 || grade > 100) {
+    console.log(`Invalid grade for ${name}.`);  
+  }else {
+    students.push({name: name, grade: grade});
+  }  
+}
+  addStudent("Tope", 89)
+  addStudent("Ike", 98)
+  addStudent("Tola", 74)
+  addStudent("Ola", 75)
+  addStudent("oye", 130)
+  console.log(students)
+ 
 
-// // ✅ 1. Add Student
-// function addStudent(name, grade) {
-//   if (grade < 0 || grade > 100) {
-//     console.log(`Invalid grade for ${name}. Must be between 0 and 100.`);
-//     return;
-//   }
-//   students.push({ name, grade });
-// }
+//  2. Calculate Average
+function calculateAverage() {
+let grades = [];
+  let total = 0;
+  for (let i = 0; i < students.length; i++) {
+    total += students[i].grade;
+  }
+  let average = total / students.length
+  return average;
+}
 
-// // ✅ 2. Calculate Average
-// function calculateAverage() {
-//   let total = 0;
-//   for (let student of students) {
-//     total += student.grade;
-//   }
-//   return (total / students.length).toFixed(2);
-// }
+console.log("The average score is", calculateAverage())
 
-// // ✅ 3. Find Top & Bottom Student
-// function findTopStudent() {
-//   let topGrade = Math.max(...students.map(s => s.grade));
-//   return students.find(s => s.grade === topGrade);
-// }
 
+//  3. Find Top & Bottom Student
+function findTopStudent() {
+  let topGrade = Math.max(...students.map(s => s.grade));//.map creates a new array containing only the grades of all students.
+  //The spread operator ... expands the array into individual arguments
+  //returns the max grade
+  return students.find(s => s.grade === topGrade);
+}
+console.log("The student with the highest grade is", findTopStudent())
+
+
+function findottomStudent() {
+  let bottomGrade = Math.min(...students.map(s => s.grade));//.map creates a new array containing only the grades of all students.
+  //The spread operator ... expands the array into individual arguments
+  //returns the max grade
+  return students.find(s => s.grade === bottomGrade);
+}
+console.log("The student with the highest grade is", findTopStudent())
 // function findBottomStudent() {
 //   let bottomGrade = Math.min(...students.map(s => s.grade));
-//   return students.find(s => s.grade === bottomGrade);
+//   return students.find(grade === bottomGrade);
 // }
+// console.log("The student with the lowest grade is", findBottomStudent())
 
-// // ✅ 4. Grade Categorizer
+
+
+
+// // 4. Grade Categorizer
 // function getLetterGrade(score) {
 //   if (score >= 90) return 'A';
 //   if (score >= 80) return 'B';
@@ -257,15 +240,21 @@ function sortedMoviesbyRating() {
 //   return 'F';
 // }
 
-// // ✅ 5. Report Generator
+
+
+
+// // 5. Report Generator
 // function generateReport() {
 //   // Sort students by grade (descending)
 //   students.sort((a, b) => b.grade - a.grade);
 
-//   console.log("📊 Class Report");
+//   console.log(" Class Report");
 //   console.log("--------------------------------------------------");
 //   console.log("Name\t\tGrade\tLetter Grade");
 //   console.log("--------------------------------------------------");
+
+
+
 
 //   for (let student of students) {
 //     console.log(`${student.name}\t\t${student.grade}\t${getLetterGrade(student.grade)}`);
@@ -277,111 +266,32 @@ function sortedMoviesbyRating() {
 //   console.log(`Lowest Student: ${findBottomStudent().name} (${findBottomStudent().grade})`);
 // }
 
-// // 🧪 Sample Usage
-// addStudent("Alice", 85);
-// addStudent("Bob", 92);
-// addStudent("Charlie", 67);
-// addStudent("Diana", 74);
-// addStudent("Eve", 58);
 
-// generateReport();
-// 📊 Class Report
-// --------------------------------------------------
-// Name        Grade   Letter Grade
-// --------------------------------------------------
-// Bob         92      A
-// Alice       85      B
-// Diana       74      C
-// Charlie     67      D
-// Eve         58      F
-// --------------------------------------------------
-// Class Average: 75.20
-// Top Student: Bob (92)
-// Lowest Student: Eve (58)
 
-// // Step 1: Create an empty list to store students
-// let students = [];
 
-// // Step 2: Add a student with name and grade
-// function addStudent(name, grade) {
-//   if (grade < 0 || grade > 100) {
-//     console.log("Grade must be between 0 and 100.");
-//     return;
-//   }
-//   students.push({ name: name, grade: grade });
-// }
 
-// // Step 3: Get average grade
-// function getAverage() {
-//   let total = 0;
-//   for (let i = 0; i < students.length; i++) {
-//     total += students[i].grade;
-//   }
-//   return (total / students.length).toFixed(2);
-// }
 
-// // Step 4: Get letter grade
-// function getLetter(grade) {
-//   if (grade >= 90) return "A";
-//   if (grade >= 80) return "B";
-//   if (grade >= 70) return "C";
-//   if (grade >= 60) return "D";
-//   return "F";
-// }
 
-// // Step 5: Find top and bottom student
-// function getTopStudent() {
-//   let top = students[0];
-//   for (let i = 1; i < students.length; i++) {
-//     if (students[i].grade > top.grade) {
-//       top = students[i];
-//     }
-//   }
-//   return top;
-// }
 
-// function getBottomStudent() {
-//   let bottom = students[0];
-//   for (let i = 1; i < students.length; i++) {
-//     if (students[i].grade < bottom.grade) {
-//       bottom = students[i];
-//     }
-//   }
-//   return bottom;
-// }
 
-// // Step 6: Show full report
-// function showReport() {
-//   // Sort students by grade (high to low)
-//   students.sort((a, b) => b.grade - a.grade);
 
-//   console.log("📋 Student Report");
-//   console.log("----------------------------");
-//   for (let i = 0; i < students.length; i++) {
-//     let s = students[i];
-//     console.log(`${s.name} - ${s.grade} - ${getLetter(s.grade)}`);
-//   }
-//   console.log("----------------------------");
-//   console.log("Class Average:", getAverage());
-//   console.log("Top Student:", getTopStudent().name, "-", getTopStudent().grade);
-//   console.log("Lowest Student:", getBottomStudent().name, "-", getBottomStudent().grade);
-// }
 
-// // 🧪 Try it out
-// addStudent("Ada", 88);
-// addStudent("Bola", 95);
-// addStudent("Chidi", 72);
-// addStudent("Efe", 60);
-// addStudent("Zara", 45);
 
-// showReport();
+// Step 6: Show full report
+function showReport() {
+  // Sort students by grade (high to low)
+  students.sort((a, b) => b.grade - a.grade);
 
-// Adds students with their grades.
+  console.log("Student Report");
+  console.log("----------------------------");
+  for (let i = 0; i < students.length; i++) {
+    let s = students[i];
+    console.log(`${s.name} - ${s.grade} - ${getLetter(s.grade)}`);
+  }
+  console.log("----------------------------");
+  console.log("Class Average:", getAverage());
+  console.log("Top Student:", getTopStudent().name, "-", getTopStudent().grade);
+  console.log("Lowest Student:", getBottomStudent().name, "-", getBottomStudent().grade);
+}
 
-// Calculates the average grade.
 
-// Finds the best and worst student.
-
-// Gives each student a letter grade.
-
-// Prints a clean report sorted by grade
