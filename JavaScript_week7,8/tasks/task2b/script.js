@@ -1,61 +1,5 @@
 //Task 6
-// 1. isStrongPassword(password)
-// Checks if a password is strong.
-
-
-// function isStrongPassword(password) {
-//   const hasNumber = /\d/.test(password);
-//   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-//   const isLongEnough = password.length >= 8;
-
-//   return isLongEnough && hasNumber && hasSpecialChar;
-// }
-
-
-
-// 2. formatPercentage(value)
-// Formats a number as a percentage with one decimal place.
-// function formatPercentage(value) {
-//   return value.toFixed(1) + "%";
-// }
-
-
-
-// 3. calculateCompoundInterest(principal, rate, years)
-// Calculates compound interest using the formula: ...formula.
-// function calculateCompoundInterest(principal, rate, years) {
-//   const amount = principal * Math.pow(1 + rate, years);
-//   return parseFloat(amount.toFixed(2));
-// }
-
-
-// 4. canGraduate(credits, gpa)
-// Checks if a student meets graduation requirements.
-
-// function canGraduate(credits, gpa) {
-//   return credits >= 120 && gpa >= 2.0;
-// }
-
-
-// 5. reverseWords(sentence)
-// Reverses the words and capitalizes the first letter of each word.
-// function reverseWords(sentence) {
-//   return sentence
-//     .split(" ")
-//     .reverse()
-//     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-//     .join(" ");
-// }
-
-
-// console.log(isStrongPassword("Hello123!"));           // true
-// console.log(formatPercentage(87.456));                // "87.5%"
-// console.log(calculateCompoundInterest(1000, 0.05, 3)); // 1157.63
-// console.log(canGraduate(130, 2.5));                   // true
-// console.log(reverseWords("hello world from javascript")); // "Javascript From World Hello"
-
-
-
+// 1. Creating a validation function isStrongPassword(passsword) 
 function isStrongPassword(password) {
   const hasNumber = /\d/.test(password); // checks for a number
   const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); // checks for special character
@@ -63,58 +7,48 @@ function isStrongPassword(password) {
 
   return isLongEnough && hasNumber && hasSpecialChar;
 }
-console.log(isStrongPassword("Hello123!")); // true
-console.log(isStrongPassword("short"));     // false
+console.log(isStrongPassword("Adebimpe@23!")); 
+console.log(isStrongPassword("short"));    
 
-
+//2. Formatter function that alway shows 1dp with %
 function formatPercentage(value) {
   return value.toFixed(1) + "%";
 }
-console.log(formatPercentage(87.456)); // "87.5%"
+console.log(formatPercentage(96.456)); 
 
-𝐴=𝑃×(1+𝑟)𝑡
-Where:
 
-P = starting money (principal)
-
-r = interest rate (like 0.05 for 5%)
-
-t = number of years
-
-function calculateCompoundInterest(principal, rate, years) {
-  const amount = principal * Math.pow(1 + rate, years);
-  return parseFloat(amount.toFixed(2));
+//3. Calculator function calculateCompoundInterest(principal, rate, years)
+// A = Px(1 + r)^t
+function calculateCompoundInterest(principal, rate, years) {   //Using the formular A = Px(1 + r)^t
+  let amount = principal *(1 + rate/100)**years;
+  return Number(amount.toFixed(2));
 }
-console.log(calculateCompoundInterest(1000, 0.05, 3)); // 1157.63
+console.log(calculateCompoundInterest(2000, 5, 4)); 
 
-4. canGraduate(credits, gpa)
-Goal: Decide if a student can graduate.
-
-Rules:
-
-Must have at least 120 credits
-
-Must have GPA of 2.0 or more
-
+//4. A decision maker function canGraduate(credits, gpa) that checks if a student meets graduation requirements.
 function canGraduate(credits, gpa) {
   return credits >= 120 && gpa >= 2.0;
 }
-console.log(canGraduate(130, 2.5)); // true
-console.log(canGraduate(100, 2.5)); // false
+console.log(canGraduate(190, 4.5)); // true
+console.log(canGraduate(150, 1.5)); // false
 
 
+//5. A utility function reverseWords(sentence) that takes a string and returns the sentence with the words reversed.
 function reverseWords(sentence) {
-  return sentence
-    .split(" ") // turn sentence into words
-    .reverse()  // reverse the order
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // capitalize
-    .join(" "); // join back into a sentence
+  return sentence.split(" ").reverse().map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+ 
+  // split turns sentence into words
+  //reverse reverses the words order
+  // join back into a sentence
+  // map to transform the world and capitalize each words
+  //word,chaAt(0) - get the first char of the string
 }
+console.log(reverseWords("I like apple")); 
 
 
-//7. 
+// //7. Smart Shopping Calculator
 
-// 1. Product Calculator
+// // 1. Product Calculator 
 function calculateProductTotal(price, quantity, discount) {
   if (price < 0 || quantity < 0 || discount < 0 || discount > 100) {
     return "Invalid product input";
@@ -124,45 +58,50 @@ function calculateProductTotal(price, quantity, discount) {
   let total = subtotal - discountAmount;
   return total;
 }
+console.log(calculateProductTotal(1000, 2, 0.1))
 
-// 2. Tax Calculator
+// // 2. Tax Calculator
 function calculateTax(total, location) {
   let taxRate = 0;
-  if (location === "NY") {
-    taxRate = 0.08875;
-  } else if (location === "CA") {
-    taxRate = 0.0725;
-  } else if (location === "TX") {
-    taxRate = 0.0625;
+  if (location === "OG") {
+    taxRate = 0.075;
+  } else if (location === "ABJ") {
+    taxRate = 0.08;
+  } else if (location === "IB") {
+    taxRate = 0.09;
   } else {
     taxRate = 0.05;
   }
   return total * taxRate;
 }
+console.log(calculateTax(10000, "OS"))
 
-// 3. Shipping Calculator
+// // 3. Shipping Calculator
 function calculateShipping(weight, distance) {
   if (weight <= 0 || distance <= 0) {
     return "Invalid shipping input";
   }
-  let baseRate = 5;
-  let weightRate = 0.1 * weight;
-  let distanceRate = 0.05 * distance;
-  return baseRate + weightRate + distanceRate;
+  let baseFee = 5; //starting cost
+  let weightFee = 0.1 * weight; //cost per kg
+  let distanceFee = 0.05 * distance; //cost per km
+  return baseFee + weightFee + distanceFee;
 }
+console.log(calculateShipping(100, 200))
 
-// 4. Membership Discount
+
+// // 4. Membership Discount
 function applyMembershipDiscount(total, level) {
   let discount = 0;
   if (level === "Gold") {
-    discount = 15;
+    discount = 0.15;
   } else if (level === "Silver") {
-    discount = 10;
+    discount = 0.10;
   } else if (level === "Bronze") {
-    discount = 5;
+    discount = 0.05;
   }
-  return total - (total * discount / 100);
+  return total - (total * discount);
 }
+console.log(applyMembershipDiscount(1000, "Silver"))
 
 // 5. Final Receipt Generator
 function generateReceipt(price, quantity, discount, location, weight, distance, level) {
@@ -181,19 +120,20 @@ function generateReceipt(price, quantity, discount, location, weight, distance, 
 
   // Final receipt
   let receipt = `
-  🧾 Final Receipt
-  ----------------------------
-  Item Total:        $${productTotal.toFixed(2)}
-  Tax (${location}): $${tax.toFixed(2)}
-  Shipping:          $${shipping.toFixed(2)}
-  Membership:        ${level}
-  ----------------------------
-  Total Before Discount: $${preDiscountTotal.toFixed(2)}
-  Final Total:            $${finalTotal.toFixed(2)}
-  Note: ${shippingNote}
+  \n----------------------------
+          \n\t\tFinal Receipt
+  \n----------------------------
+  \nItem Total:        $${productTotal.toFixed(2)}
+  \nTax (${location}): \t\t\t$${tax.toFixed(2)}
+ \n Shipping:          $${shipping.toFixed(2)}
+  \nMembership:        \t${level}
+  \n-------------------------------
+  \nTotal Before Discount: $${preDiscountTotal.toFixed(2)}
+  \nFinal Total:            $${finalTotal.toFixed(2)}
+  \nNote: ${shippingNote}
   `;
   return receipt;
 }
 
-// Example usage
-console.log(generateReceipt(50, 3, 10, "CA", 2.5, 100, "Gold"));
+
+console.log(generateReceipt(500, 5, 10, "IB", 1.5, 100, "Gold"));

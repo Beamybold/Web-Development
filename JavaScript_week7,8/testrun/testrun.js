@@ -1,44 +1,139 @@
-// Step 1: Store grades in an array
-const grades = [70, 45, 88, 53, 39, 100, 67, 49];
 
-// Step 2: Calculate average grade
-const getAverage = (grades) => {
-  let total = 0;
-  grades.forEach(grade => total += grade);
-  const average = total / grades.length;
-  console.log(`📊 Average grade is: ${average}`);
-};
 
-// Step 3: Find highest grade
-const getHighest = (grades) => {
-  let highest = grades[0];
-  grades.forEach(grade => {
-    if (grade > highest) highest = grade;
+
+
+
+
+
+
+
+// 1. Create two arrays
+let movies = [];
+let ratings = [];
+
+// 2. Function to add a movie and its rating
+function addMovie(movie, rating) {
+  movies.push(movie);
+  ratings.push(rating);
+  console.log(`Added "${movie}" with a rating of ${rating}`);
+}
+
+// 3. Function to calculate average rating
+function getAverageRating() {
+  let total = ratings.reduce((sum, r) => sum + r, 0);
+  let average = total / ratings.length;
+  return average.toFixed(2); // rounded to 2 decimal places
+}
+
+// 4. Function to get the top-rated movie
+function getTopMovie() {
+  let maxRating = Math.max(...ratings);
+  let index = ratings.indexOf(maxRating);
+  return `${movies[index]} (${maxRating})`;
+}
+
+// 5. Print summary of all movies
+function printSummary() {
+  console.log("🎬 Movie Ratings Summary:");
+  for (let i = 0; i < movies.length; i++) {
+    console.log(`- ${movies[i]}: ${ratings[i]}`);
+  }
+  console.log(`📊 Average Rating: ${getAverageRating()}`);
+  console.log(`🏆 Top Movie: ${getTopMovie()}`);
+}
+
+// Challenge: Sort movies by rating (high → low)
+function printSortedMovies() {
+  let combined = movies.map((movie, i) => ({ movie, rating: ratings[i] }));
+  combined.sort((a, b) => b.rating - a.rating);
+  console.log("🔢 Sorted Movies by Rating:");
+  combined.forEach(item => {
+    console.log(`- ${item.movie}: ${item.rating}`);
   });
-  console.log(`🏆 Highest grade is: ${highest}`);
-};
+}
 
-// Step 4: Find lowest grade
-const getLowest = (grades) => {
-  let lowest = grades[0];
-  grades.forEach(grade => {
-    if (grade < lowest) lowest = grade;
-  });
-  console.log(`🔻 Lowest grade is: ${lowest}`);
-};
+// Example usage
+addMovie("Inception", 9);
+addMovie("Titanic", 8.5);
+addMovie("Interstellar", 9.3);
+addMovie("The Matrix", 8.7);
 
-// Step 5: Calculate pass rate (grades ≥ 50)
-const getPassRate = (grades) => {
-  let passCount = 0;
-  grades.forEach(grade => {
-    if (grade >= 50) passCount++;
-  });
-  const passRate = (passCount / grades.length) * 100;
-  console.log(`✅ Pass rate is: ${passRate}%`);
-};
+printSummary();
+printSortedMovies();
 
-// Run all functions
-getAverage(grades);
-getHighest(grades);
-getLowest(grades);
-getPassRate(grades);
+let movies = [];
+let ratings = [];
+
+function addMovie(movie, rating) {
+  movies.push(movie);
+  ratings.push(rating);
+  console.log(`Added "${movie}" with a rating of ${rating}`);
+}
+
+function getAverageRating() {
+  let total = ratings.reduce((sum, r) => sum + r, 0);
+  let average = total / ratings.length;
+  return average.toFixed(2);
+}
+
+function getTopMovie() {
+  let maxRating = Math.max(...ratings);
+  let index = ratings.indexOf(maxRating);
+  return `${movies[index]} (${maxRating})`;
+}
+
+function printSummary() {
+//   console.log("🎬 Movie Ratings Summary:");
+//   for (let i = 0; i < movies.length; i++) {
+//     console.log(`- ${movies[i]}: ${ratings[i]}`);
+//   }
+//   console.log(`📊 Average Rating: ${getAverageRating()}`);
+//   console.log(`🏆 Top Movie: ${getTopMovie()}`);
+// }
+
+// function printSortedMovies() {
+//   let combined = movies.map((movie, i) => ({ movie, rating: ratings[i] }));
+//   combined.sort((a, b) => b.rating - a.rating);
+//   console.log("🔢 Sorted Movies by Rating:");
+//   combined.forEach(item => {
+//     console.log(`- ${item.movie}: ${item.rating}`);
+//   });
+// }
+
+// // 🔄 Update a movie's rating
+// function updateRating(movie, newRating) {
+//   let index = movies.indexOf(movie);
+//   if (index !== -1) {
+//     ratings[index] = newRating;
+//     console.log(`Updated "${movie}" to new rating: ${newRating}`);
+//   } else {
+//     console.log(`Movie "${movie}" not found.`);
+//   }
+// }
+
+// // ❌ Delete a movie
+// function deleteMovie(movie) {
+//   let index = movies.indexOf(movie);
+//   if (index !== -1) {
+//     movies.splice(index, 1);
+//     ratings.splice(index, 1);
+//     console.log(`Deleted "${movie}" from the list.`);
+//   } else {
+//     console.log(`Movie "${movie}" not found.`);
+//   }
+// }
+
+// // Example usage
+// addMovie("Inception", 9);
+// addMovie("Titanic", 8.5);
+// addMovie("Interstellar", 9.3);
+// addMovie("The Matrix", 8.7);
+
+// updateRating("Titanic", 9.1);
+// deleteMovie("The Matrix");
+
+// printSummary();
+// printSortedMovies();
+
+
+

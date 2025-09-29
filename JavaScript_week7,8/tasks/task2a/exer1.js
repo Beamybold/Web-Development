@@ -14,7 +14,7 @@
 
 
 // function getGrade(){ //function `getGrade(score)` 
-//    let score =  Number(prompt("What is your score: "))
+//    let score =  number(prompt("What is your score: "))
     
 //     //Use if/else if statements to assign grades
 //     if (score === 100){
@@ -53,7 +53,7 @@
 
 // Function that calculates discounts
 // function calculateDiscount() {
-//   let price =  Number(prompt("Enter price: "));
+//   let price =  number(prompt("Enter price: "));
 //   let customerType = String(prompt(`Are you a : \n1. Student \n2. Senior \n3. Employee`));
 //   let isFirstPurchase = String(prompt(`Is this your first purchase? \n1. Yes \n2. No`));
 //     let discount = 0;
@@ -111,35 +111,38 @@
 
 
 // // // Function that gives weather advice
-function weatherAdvice() {
-    let temperature, isRaining= "";
-    // let  isRaining = true;
-
+// function weatherAdvice() {
+//     let temperature = Number(prompt("Enter temperature: "));let isRaining = String(prompt(`Is it raining? \n1. Yes \n2. No`));
+//     let advice = ""
  
-//Using if/else if to return advice
-if (temperature < 32 && isRaining) {
-    advice = "Freezing rain! Stay inside!";
-} else if (temperature < 32) {
-    advice = "Very cold! Wear a heavy coat!";
-} else if (temperature >= 32 && temperature <= 60) {
-    advice = "Chilly, bring a jacket.";
-} else if (temperature > 60 && temperature <= 80) {
-    advice = "Nice weather!";
-} else if (temperature > 80) {
-    advice = "It's hot, stay hydrated!";
-} else {
-    advice = "It's warm! T-shirt weather!";
-}
+// //Using if/else if to return advice
+// if (temperature < 32 && isRaining === "1") {
+//     console.log("Freezing rain! Stay inside!");
+// } else if (temperature < 32 ) {
+//     advice = "Very cold! Wear a heavy coat!";
+// } else if (temperature >= 32 && temperature <= 60 && isRaining === "2" ) {
+//     console.log("Chilly, bring a jacket.");
+// } else if (temperature > 60 && temperature <= 80) {
+//     console.log("Nice weather!");
+// } else if (temperature > 80 && isRaining === "2") {
+//     console.log("It's hot, stay hydrated!");
+// } else {
+//     console.log("It's warm! T-shirt weather!");
+// }
 
 
-//Adding a tenary operator
-advice += "" + (isRaining = advice ? "Bring an umbrella" : "No umbrella needed");
-return advice;
-}
+// //Adding a tenary operator
+// advice += "" + (isRaining = advice ? "Bring an umbrella" : "No umbrella needed");
+// if (isRaining == true) {
+//     console.log(advice==true);
+// }else {
+//     console.log(advice==false)
+// }
+// }
 
-console.log(weatherAdvice(85, true))
-console.log(weatherAdvice(35, true))
-console.log(weatherAdvice(78, false))
+// console.log(advice(85, true))
+// console.log(weatherAdvice(35, true))
+// console.log(weatherAdvice(78, false))
 
 
 
@@ -157,33 +160,35 @@ console.log(weatherAdvice(78, false))
 
 // // **Challenge:** Add a condition that blocks withdrawals over 500 at once.
 
-// //function for ATM withdrawal
+// // //function for ATM withdrawal
 // function atm() {
-//  let action(prompt("What do you want to do: "));
+//  let balance = 1000;
+//  let action = String(prompt(`Select: \n1. Withdraw \n2. Deposit `));
+//  let amount = Number(prompt("Enter the amount: "))
+ 
    
 
-//   if (action === "withdraw") { //To check the condition if action is withdraw
+//   if (action === "1") { //To check the condition if action is withdraw
 //     if (amount > 500) { //condition to block withdrawal over 500 at once
-//       return "Withdrawal blocked: You cannot withdraw more than 500 at once."; 
+//       console.log("Withdrawal blocked: You have exceeded the withdrawal amount."); 
 //     } else if (amount > balance) { 
-//       return "Insufficient funds. Your balance is ${balance}";
+//       console.log(`Insufficient funds. Your balance is ${balance}`);
 //     } else {
 //       balance -= amount;
-//       return "Withdrawal successful. New balance: ${balance}";
+//       console.log(`Withdrawal successful. New balance: ${balance}`);
 //     }
 //   } 
   
-//   else if (action === "deposit") { //condition for deposit
+//   else if (action === "2") { //condition for deposit
 //     balance += amount;
-//     return "Deposit successful. New balance: ${balance}.";
+//     console.log(`Deposit successful. New balance: ${balance}.`);
 //   } 
   
 //   else {
-//     return "Invalid input, choose withdraw or deposit.";
+//     console.log(`Invalid input, choose withdraw or deposit.`);
 //   }
 // }
  
-// console.log(atm(1000, "withdraw", 200))
 
 
 
@@ -209,43 +214,61 @@ console.log(weatherAdvice(78, false))
 // // - Handle edge cases (invalid inputs)
 
 
-// function personalAssistant(hour, weather, dayType) {
-//   // Handle invalid inputs
+function personalAssistant() {
+    let hour = Number(prompt(`Enter the current hour (24hours): `))
+     let weather = String(prompt(`Select the appropiate weather: \n1. Sunny \n2. Raining \n3. Cloudy`))
+     let dayType = String(prompt(`Select the appropriate: \n1. Workday \n2. Weekend \n3. Holiday`))
  
-//   let message = "";
 
-//   // Time-based advice
-//   if (hour >= 6 && hour < 12) {
-//     message += "Good morning! ";
-//   } else if (hour >= 12 && hour < 18) {
-//     message += "Good afternoon! ";
-//   } else if (hour >= 18 && hour < 22) {
-//     message += "Good evening! ";
-//   } else {
-//     message += "It's late, you should consider resting. ";
-//   }
+  // Handle invalid inputs
+   if (typeof hour !== "number" || hour < 0 || hour > 23) {
+    console.log("Invalid input! Please enter a number between 0 and 23.");
+  }
+  if (!["1", "2", "3"].includes(weather)) {
+    console.log("Invalid weather! Choose sunny, rainy, or cloudy.");
+  }
+  if (!["1", "2", "3"].includes(dayType)) {
+    console.log("Invalid day type! Choose workday, weekend, or holiday.");
+  }
+ 
+  let message = "";
 
-//   // Weather-based advice
-//   if (weather === "rainy") {
-//     message += "Don't forget your umbrella. ";
-//   } else if (weather === "sunny" && hour < 17) {
-//     message += "Great day for a walk. ";
-//   } else {
-//     message += weather === "cloudy" ? "Might get chilly, take a jacket. " : "";
-//   }
+  // Time-based advice
+  if (hour >= 6 && hour < 12) {
+    console.log(`${message += "Good morning!"}`);
+  } else if (hour >= 12 && hour < 18) {
+    console.log(`${message += "Good afternoon! "}`);
+  } else if (hour >= 18 && hour < 22) {
+    console.log(`${message += "Good evening! "}`);
+  } else {
+    console.log(`${message += "It's late, you should consider resting."}`);
+  }
 
-//   // Day type advice with logical operators
-//   if (dayType === "workday" && hour >= 9 && hour <= 17) {
-//     message += "Stay focused on work. ";
-//   } else if (dayType === "weekend" || dayType === "holiday") {
-//     message += "Relax and enjoy your free time! ";
-//   }
 
-//   // Quick ternary operator for lunch advice
-//   message += (hour === 12) ? "It's lunchtime now!" : "";
+ 
+
+  // Weather-based advice
+  if (weather === "1") {
+    console.log(`${message += "Don't forget your umbrella. "}`); 
+  } else if (weather === "2" && hour < 17) {
+    console.log(`${message += "Great day for a walk. "}`) ;
+  } else {
+    console.log(`${message += weather === "3" ? "Might get chilly, take a jacket. " : "" }`);
+  }
+
+ 
+  // Day type advice with logical operators
+  if (dayType === "workday" && hour >= 9 && hour <= 17) {
+    console.log(`${message += "Stay focused on work. "}`);
+  } else if (dayType === "weekend" || dayType === "holiday") {
+    console.log(`${message += "Enjoy your free time! "}`);
+  }
+
+  // Quick ternary operator for lunch advice
+  console.log(`${message += (hour === 12) ? "It's lunchtime now!" : "It is not yet lunchtime"}`);
 
 //   return message.trim();
-// }
+}
 
-// // Example calls
+// Example calls
 // console.log(personalAssistant(17, "sunny", "workday"));
