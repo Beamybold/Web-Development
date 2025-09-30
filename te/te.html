@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧑‍🍳 Staff Dashboard</h1>
+
+    <!-- Add New Menu Item -->
+    <section>
+      <h2>➕ Add New Menu Item</h2>
+      <form id="addForm">
+        <input type="text" id="name" placeholder="Item Name" required />
+        <input type="number" id="price" placeholder="Price (₦)" required />
+        <input type="text" id="description" placeholder="Description" required />
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
+
+    <!-- View and Edit Menu -->
+    <section>
+      <h2>📋 Current Menu Items</h2>
+      <table id="menuTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price (₦)</th>
+            <th>Description</th>
+            <th>Edit Price</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Items will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
