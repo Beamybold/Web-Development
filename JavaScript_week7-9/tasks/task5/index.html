@@ -1,0 +1,36 @@
+<!-- 1 - Color changer -->
+<!-- 1 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changer</title>
+</head>
+<body id="body">
+  <p id="title">Color changer!!!</p>
+  <button onclick="changeColor()">Change Color</button>
+
+  <!-- 2 -->
+  <script>
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // 3
+    function changeColor() {
+      const paragraph = document.getElementById('title');
+      const body = document.getElementById('body');
+      const randomColor = getRandomColor();
+      const bgColor = getRandomColor();
+    //   4
+      paragraph.style.color = randomColor;
+      // challenge
+      body.style.backgroundColor = bgColor; 
+    }
+  </script>
+</body>
+</html

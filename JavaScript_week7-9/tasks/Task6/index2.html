@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visit Counter</title>
+  <style>
+    
+    button{
+        background-color: purple;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="visitMessage">Visit Counter</h2>
+  <p id="firstVisitDate"></p>
+  <button onclick="resetCounter()">Reset Counter</button>
+
+  <script>
+    // Run on page load
+    let visitCount = localStorage.getItem('visitCount');
+    let firstVisit = localStorage.getItem('firstVisit');
+
+    if (visitCount) {
+      visitCount = parseInt(visitCount) + 1;
+      localStorage.setItem('visitCount', visitCount);
+    } else {
+      visitCount = 1;
+      localStorage.setItem('visitCount', visitCount);
+      // Save first visit date
+      const dateNow = new Date().toLocaleString();
+      localStorage.setItem('firstVisit', dateNow);
+    }
+
+    // Show messages
+    document.getElementById('visitMessage').textContent = `You have visited ${visitCount} ${visitCount > 1 ? 'times' : 'time'}.`;
+    
+    if (firstVisit) {
+      document.getElementById('firstVisitDate').textContent = `First Visit: ${firstVisit}`;
+    }
+
+    // Reset function
+    function resetCounter() {
+      localStorage.removeItem('visitCount');
+      localStorage.removeItem('firstVisit');
+location.reload(); // Reload page to reflect changes
+    }
+  </script>
+
+</body>
+</html>

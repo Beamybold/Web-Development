@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Simple Login Form</title>
+  <style>
+
+    input{
+        margin-bottom: 20px;
+        display: block;
+    
+        padding: 10px;
+        border-radius: 10px
+    }
+    button{
+        background-color: purple;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="loginForm">
+    <label>Username:</label>
+    <input type="text" id="username" placeholder="Enter Your Username" />
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Enter Your Password" />
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // 4. Prevent page refresh
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+//challenge 
+      if (username === '' || password === '') {
+        message.textContent = 'Please fill in all fields';
+        } else {
+        message.textContent = `Welcome, ${username}!`;
+        }
+
+      if (username === 'admin' && password === '1234') {
+        message.textContent = `${username} login successful`;
+      } else {
+        message.textContent = `Welcome, ${username}!`;
+      }
+    });
+  </script>
+
+</body>

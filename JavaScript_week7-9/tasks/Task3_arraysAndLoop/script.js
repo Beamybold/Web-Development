@@ -215,83 +215,53 @@ function findTopStudent() {
 console.log("The student with the highest grade is", findTopStudent())
 
 
-function findottomStudent() {
-  let bottomGrade = Math.min(...students.map(s => s.grade));//.map creates a new array containing only the grades of all students.
-  //The spread operator ... expands the array into individual arguments
-  //returns the max grade
+function findBottomStudent() {
+  let bottomGrade = Math.min(...students.map(s => s.grade));
   return students.find(s => s.grade === bottomGrade);
 }
-console.log("The student with the highest grade is", findTopStudent())
-// function findBottomStudent() {
-//   let bottomGrade = Math.min(...students.map(s => s.grade));
-//   return students.find(grade === bottomGrade);
-// }
-// console.log("The student with the lowest grade is", findBottomStudent())
+console.log("The student with the least grade is", findBottomStudent())
 
 
 
 
-// // 4. Grade Categorizer
-// function getLetterGrade(score) {
-//   if (score >= 90) return 'A';
-//   if (score >= 80) return 'B';
-//   if (score >= 70) return 'C';
-//   if (score >= 60) return 'D';
-//   return 'F';
-// }
 
+// 4. Grade Categorizer
+function getLetterGrade(score) {
+  if (score >= 90 || score === 100) {
+    return 'A';
+  } else if (score >= 80 || score === 89){ return 'B';
+  } else if (score >= 70 || score === 79){ return 'C';
+  } else if  (score >= 60 || score === 69){
+    return 'D';
+  } else if (score >= 0 || score === 59){
+  return 'F';
+  } else {
+    return "Invalid input"
+  }
+}
 
+console.log(getLetterGrade(98))
 
 
 // // 5. Report Generator
-// function generateReport() {
-//   // Sort students by grade (descending)
-//   students.sort((a, b) => b.grade - a.grade);
-
-//   console.log(" Class Report");
-//   console.log("--------------------------------------------------");
-//   console.log("Name\t\tGrade\tLetter Grade");
-//   console.log("--------------------------------------------------");
-
-
-
-
-//   for (let student of students) {
-//     console.log(`${student.name}\t\t${student.grade}\t${getLetterGrade(student.grade)}`);
-//   }
-
-//   console.log("--------------------------------------------------");
-//   console.log(`Class Average: ${calculateAverage()}`);
-//   console.log(`Top Student: ${findTopStudent().name} (${findTopStudent().grade})`);
-//   console.log(`Lowest Student: ${findBottomStudent().name} (${findBottomStudent().grade})`);
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-// Step 6: Show full report
-function showReport() {
-  // Sort students by grade (high to low)
-  students.sort((a, b) => b.grade - a.grade);
-
-  console.log("Student Report");
-  console.log("----------------------------");
-  for (let i = 0; i < students.length; i++) {
-    let s = students[i];
-    console.log(`${s.name} - ${s.grade} - ${getLetter(s.grade)}`);
+  for (let student of students) {
+    console.log(`${student.name}\t\t${student.grade}\t${getLetterGrade(student.grade)}`);
   }
-  console.log("----------------------------");
-  console.log("Class Average:", getAverage());
-  console.log("Top Student:", getTopStudent().name, "-", getTopStudent().grade);
-  console.log("Lowest Student:", getBottomStudent().name, "-", getBottomStudent().grade);
-}
+
+  console.log("--------------------------------------------------");
+  console.log(`Class Average: ${calculateAverage()}`);
+  console.log(`Top Student: ${findTopStudent().name} (${findTopStudent().grade})`);
+  console.log(`Lowest Student: ${findBottomStudent().name} (${findBottomStudent().grade})`);
+
+
+
+
+
+
+
+
+
+
+
 
 

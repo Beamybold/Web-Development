@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Persistent Notes App</title>
+  <style>
+    textarea{
+        margin-bottom: 2px;
+        padding: 10px;
+        border-radius: 10px
+    }
+    button{
+        background-color: purple;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Notes</h3>
+  <p>Write you notes in the box below</p>
+  <textarea id="noteInput" rows="4" cols="20" placeholder="Type your note here..."></textarea><br><br>
+
+  <button onclick="saveNote()">Save Note</button>
+  <button onclick="loadNote()">Load Note</button>
+
+  <p id="output"></p>
+  <p id="timestamp"></p>
+
+  <!-- 2 -->
+  <script>
+    function saveNote() {
+      const note = document.getElementById('noteInput').value;
+      const time = new Date().toLocaleString();
+      localStorage.setItem('savedNote', note);
+      localStorage.setItem('savedAt', time);
+      alert('Note saved!');
+    }
+
+    // 3
+    function loadNote() {
+      const savedNote = localStorage.getItem('savedNote');
+      const savedAt = localStorage.getItem('savedAt');
+
+      if (savedNote) {
+        document.getElementById('output').textContent = savedNote;
+        document.getElementById('timestamp').textContent = `Last saved at: ${savedAt}`; //challenge
+      } else {
+        document.getElementById('output').textContent = 'No saved note found.';
+        document.getElementById('timestamp').textContent = '';
+      }
+    }
+  </script>
+
+</body>
+</html>

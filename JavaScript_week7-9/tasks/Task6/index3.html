@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Theme Switcher</title>
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .light {
+      background-color: white;
+      color: rgb(21, 47, 85);
+    }
+
+    .dark {
+      background-color: #121212;
+      color: rgb(191, 209, 226);
+    }
+
+    .blue {
+      background-color: #5888b8;
+      color: #0a212b;
+    }
+
+      button{
+       margin-right: 15px;
+        background-color: rgb(117, 134, 228);
+        color: white;
+        font-size: 18px;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    button:hover{
+        background-color: rgb(47, 73, 131);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Theme Switcher</h1>
+  <button onclick="setTheme('light')">Light Mode</button>
+  <button onclick="setTheme('dark')">Dark Mode</button>
+  <button onclick="setTheme('blue')">Blue Mode</button>
+
+  <script>
+    function setTheme(theme) {
+      document.body.className = theme;
+      localStorage.setItem('theme', theme);
+    }
+
+    // Load saved theme on page load
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.className = savedTheme;
+    };
+  </script>
+
+</body>
+</html>
+
