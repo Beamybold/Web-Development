@@ -146,9 +146,9 @@ class Cart {
 }
 
 
-let product1 = new Product('Rice', 40);
-let product2 = new Product('Beans', 30);
-let product3 = new Product('Oil', 50);
+let product1 = new Product("Beans", 40);
+let product2 = new Product("noodles", 30);
+let product3 = new Product("rice", 50);
 
 let myCart = new Cart();
 myCart.addProduct(product1, 2); 
