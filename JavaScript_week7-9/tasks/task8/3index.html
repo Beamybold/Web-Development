@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto-Save Draft</title>
+</head>
+<body>
+
+  <style>
+    .body{
+      margin: 0;
+      padding: auto;
+      text-align: center;
+      background-color: rgb(247, 213, 247);
+    }
+
+    textarea{
+      font: 16px sans-serif;
+      border: 2px solid purple;
+      border-radius: 7px;
+      width: 400px;
+      height: 300px;
+    }
+  </style>
+<div class="body">
+  <h2>Auto-Save Draft</h2>
+  <textarea id="draft" rows="5"  placeholder="Type here."></textarea>
+  <p id="status"></p>
+  </div>
+
+  <script>
+    const textarea = document.getElementById("draft");
+    const status = document.getElementById("status");
+
+    const savedText = localStorage.getItem("autoDraft");
+    const savedTime = localStorage.getItem("savedTime");
+    if (savedText) textarea.value = savedText;
+    if (savedTime) status.textContent = `Draft saved at savedTime`;
+
+    
+    setInterval(() => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      localStorage.setItem("autoDraft", textarea.value);
+      localStorage.setItem("savedTime", timeString);
+      status.textContent = `Draft saved at ${timeString}`;
+    }, 5000);
+  </script>
+
+</body>
+</html>

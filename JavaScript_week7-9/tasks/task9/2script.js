@@ -1,0 +1,21 @@
+function deliverOrder(order) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = Math.random() > 0.5;
+      if (success) {
+        resolve(`Delivered: ${order}`);
+      } else {
+        reject(`Delivery failed: ${order}`);
+      }
+    }, 2000);
+  });
+}
+
+
+deliverOrder("laptop")
+  .then((message) => {
+    console.log(message);
+  })
+  .catch((error) => {
+    console.error(error);
+  });

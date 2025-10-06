@@ -1,0 +1,62 @@
+<!-- Auto slideshow -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Slideshow</title>
+  <style>
+    body{
+      background-color: rgb(245, 226, 245);
+    }
+    img {
+      width: 500px;
+      height: 300px;
+      display: block;
+      margin: 20px auto;
+    }
+ button{
+        margin-left: 15px;
+        background-color: purple;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+    }
+button:hover{
+        background-color: blueviolet;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <img id="slideshow" src="img1.jpg" alt="Slideshow">
+
+  <div class="controls">
+    <button onclick="pauseSlideshow()">Pause</button>
+    <button onclick="startSlideshow()">Resume</button>
+  </div>
+
+  <script>
+    const images = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg"];
+    let index = 0;
+    let interval;
+
+    function showNextImage() {
+      index = (index + 1) % images.length;
+      document.getElementById("slideshow").src = images[index];
+    }
+
+    function startSlideshow() {
+      interval = setInterval(showNextImage, 3000);
+    }
+
+    function pauseSlideshow() {
+      clearInterval(interval);
+    }
+
+ 
+    startSlideshow();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Positioning Example</title>
+  <style>
+    body {
+      height: 1000px;
+    }
+
+    .box {
+      width: 120px;
+      height: 120px;
+      margin: 0px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      line-height: 120px;
+    }
+
+    .relative {
+      position: relative;
+      top: 20px;
+      left: 30px;
+      background-color: orange;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 80px;
+      left: 150px;
+      background-color: royalblue;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 0px;
+      right: 20px;
+      background-color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <div class="box relative">Relative</div>
+  <div class="box absolute">Absolute</div>
+  <div class="box fixed">Fixed</div>
+</body>
+</html>
