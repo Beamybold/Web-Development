@@ -1,0 +1,44 @@
+<!-- let for variables that can change and const for const -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo">
+        <h3>working with variables</h3>
+        <p>Click each buttons to see diffeent variable examples;</p>
+
+        <botton class="demo-btn" onclick="showBasicVariables()">Basic variables</botton>
+        <botton class="demo-btn" onclick="showVariableTypes()">Variable Types</botton>
+        <botton class="demo-btn" onclick="constVsLet()">Const vs Let</botton>
+        <botton class="demo-btn" onclick="variableNamingExamples()">Naming Examples</botton>
+
+        <div id="variable-output" class="output">click a button to see variable examples</div>
+
+    </div>
+
+    <script>
+        function showBasicVariables() {
+            let studentName = "Ade";
+            const schoolName = "Tech Academy";
+            let age = 24;
+
+
+         let output = `
+        <strong>Basic Variables:</strong><br>
+        Student Name: ${studentName}<br>
+        School Name: ${schoolName}<br>
+        Age: ${age}<br><br>
+        <em>studentName and age use 'let' (can be changed)<br>
+        schoolName uses 'const' (cannot be changed)</em>
+    `;
+    do
+        }
+    </script>
+</body>
+</html>
