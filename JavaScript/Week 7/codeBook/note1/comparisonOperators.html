@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo">
+    <h3>Comparison Operators</h3>
+    <p>Learn how JavaScript compares values and the difference between == and ===:</p>
+    
+    <button class="demo-btn" onclick="showBasicComparisons()">Basic Comparisons</button>
+    <button class="demo-btn" onclick="showEqualityOperators()">== vs ===</button>
+    <button class="demo-btn" onclick="showTypeCoercion()">Type Coercion</button>
+    
+    <div id="comparison-output" class="output">Click a button to explore comparisons...</div>
+</div>
+
+<script>
+function showBasicComparisons() {
+    let a = 10;
+    let b = 5;
+    let c = 10;
+    
+    let output = `
+        <strong>Basic Comparison Operators:</strong><br><br>
+        a = ${a}, b = ${b}, c = ${c}<br><br>
+        <strong>Greater than (>):</strong><br>
+        a > b: ${a > b}<br>
+        b > a: ${b > a}<br><br>
+        <strong>Less than (<):</strong><br>
+        a < b: ${a < b}<br>
+        b < a: ${b < a}<br><br>
+        <strong>Greater than or equal (>=):</strong><br>
+        a >= c: ${a >= c}<br>
+        b >= a: ${b >= a}<br><br>
+        <strong>Less than or equal (<=):</strong><br>
+        a <= c: ${a <= c}<br>
+        a <= b: ${a <= b}<br><br>
+        <em>These operators return boolean values (true/false)</em>
+    `;
+    
+    document.getElementById('comparison-output').innerHTML = output;
+}
+
+function showEqualityOperators() {
+    let num = 5;
+    let str = "5";
+    let bool = true;
+    let one = 1;
+    
+    let output = `
+        <strong>Equality Operators (== vs ===):</strong><br><br>
+        num = ${num} (number), str = "${str}" (string)<br>
+        bool = ${bool} (boolean), one = ${one} (number)<br><br>
+        <strong>Loose equality (==) - allows type conversion:</strong><br>
+        num == str: ${num == str} (5 == "5")<br>
+        bool == one: ${bool == one} (true == 1)<br>
+        "" == false: ${"" == false} (empty string == false)<br>
+        0 == false: ${0 == false} (zero == false)<br><br>
+        <strong>Strict equality (===) - no type conversion:</strong><br>
+        num === str: ${num === str} (5 === "5")<br>
+        bool === one: ${bool === one} (true === 1)<br>
+        "" === false: ${"" === false} (empty string === false)<br>
+        0 === false: ${0 === false} (zero === false)<br><br>
+        <strong>Not equal operators:</strong><br>
+        num != str: ${num != str} (loose not equal)<br>
+        num !== str: ${num !== str} (strict not equal)<br><br>
+        <em>Always use === and !== to avoid unexpected behavior!</em>
+    `;
+    
+    document.getElementById('comparison-output').innerHTML = output;
+}
+
+function showTypeCoercion() {
+    // Examples of type coercion with ==
+    let examples = [
+        { left: 5, right: "5", loose: 5 == "5", strict: 5 === "5" },
+        { left: true, right: 1, loose: true == 1, strict: true === 1 },
+        { left: false, right: 0, loose: false == 0, strict: false === 0 },
+        { left: null, right: undefined, loose: null == undefined, strict: null === undefined },
+        { left: "", right: 0, loose: "" == 0, strict: "" === 0 }
+    ];
+    
+    let output = `
+        <strong>Type Coercion Examples:</strong><br><br>
+        <table style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #dee2e6;">
+                <th style="padding: 8px; border: 1px solid #ccc;">Comparison</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">== (loose)</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">=== (strict)</th>
+            </tr>
+    `;
+    
+    examples.forEach(ex => {
+        output += `
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof ex.left === 'string' ? '"' + ex.left + '"' : ex.left} vs ${typeof ex.right === 'string' ? '"' + ex.right + '"' : ex.right}</td>
+                <td style="padding: 8px; border: 1px solid #ccc; color: ${ex.loose ? 'green' : 'red'}">${ex.loose}</td>
+                <td style="padding: 8px; border: 1px solid #ccc; color: ${ex.strict ? 'green' : 'red'}">${ex.strict}</td>
+            </tr>
+        `;
+    });
+    
+    output += `
+        </table><br>
+        <em>Type coercion with == can lead to confusing results. Use === for predictable comparisons!</em>
+    `;
+    
+    document.getElementById('comparison-output').innerHTML = output;
+}
+</script>
+</body>
+</html>

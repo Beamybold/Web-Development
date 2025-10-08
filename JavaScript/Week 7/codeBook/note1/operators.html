@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo">
+    <h3>Arithmetic and Assignment Operators</h3>
+    <p>Explore how JavaScript handles mathematical operations and assignments:</p>
+    
+    <button class="demo-btn" onclick="showArithmeticOperators()">Arithmetic Operators</button>
+    <button class="demo-btn" onclick="showAssignmentOperators()">Assignment Operators</button>
+
+    
+    <div id="operators-output" class="output">Click a button to explore operators...</div>
+</div>
+
+<script>
+function showArithmeticOperators() {
+    let a = 10;
+    let b = 3;
+    
+    let addition = a + b;        // 13
+    let subtraction = a - b;     // 7
+    let multiplication = a * b;  // 30
+    let division = a / b;        // 3.333...
+    let remainder = a % b;       // 1
+    let exponentiation = a ** b; // 1000
+    
+    let output = `
+        <strong>Arithmetic Operators:</strong><br><br>
+        a = ${a}, b = ${b}<br><br>
+        Addition (a + b): ${addition}<br>
+        Subtraction (a - b): ${subtraction}<br>
+        Multiplication (a * b): ${multiplication}<br>
+        Division (a / b): ${division.toFixed(3)}<br>
+        Remainder/Modulus (a % b): ${remainder}<br>
+        Exponentiation (a ** b): ${exponentiation}<br><br>
+        <em>% gives remainder, ** is exponentiation (ES2016)</em>
+    `;
+    
+    document.getElementById('operators-output').innerHTML = output;
+}
+
+function showAssignmentOperators() {
+    let output = `Assignment Operators - Assign values eg <br>
+     = - To assign <br>
+     += - To add <br>
+    -= - To subtract and *=, /=
+    `;
+
+    document.getElementById("operators-output").innerHTML = output;
+}
+</script>
+    
+</body>
+</html>

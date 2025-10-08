@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo">
+    <h3>String Operations and Template Literals</h3>
+    <p>Learn different ways to work with strings in JavaScript:</p>
+    
+    <button class="demo-btn" onclick="showStringConcatenation()">String Concatenation</button>
+    <button class="demo-btn" onclick="showTemplateLiterals()">Template Literals</button>
+    <button class="demo-btn" onclick="showStringMethods()">String Methods</button>
+    
+    <div id="string-output" class="output">Click a button to explore string operations...</div>
+</div>
+
+<script>
+function showStringConcatenation() {
+    let firstName = "John";
+    let lastName = "Doe";
+    let age = 25;
+    
+    // Old way: string concatenation with +
+    let greeting1 = "Hello, my name is " + firstName + " " + lastName + ".";
+    let info1 = "I am " + age + " years old.";
+    
+    // Can get messy with complex strings
+    let complex1 = "User: " + firstName + " " + lastName + " (Age: " + age + ")";
+    
+    let output = `
+        <strong>String Concatenation with + operator:</strong><br><br>
+        firstName = "${firstName}", lastName = "${lastName}", age = ${age}<br><br>
+        <strong>Simple concatenation:</strong><br>
+        greeting1: "${greeting1}"<br>
+        info1: "${info1}"<br><br>
+        <strong>Complex concatenation:</strong><br>
+        complex1: "${complex1}"<br><br>
+        <em>Notice how the + method can become hard to read with many variables</em>
+    `;
+    
+    document.getElementById('string-output').innerHTML = output;
+}
+
+function showTemplateLiterals() {
+    let firstName = "Jane";
+    let lastName = "Smith";
+    let age = 30;
+    let city = "New York";
+    
+    // Modern way: template literals with backticks
+    let greeting2 = `Hello, my name is ${firstName} ${lastName}.`;
+    let info2 = `I am ${age} years old and live in ${city}.`;
+    
+    // Can include expressions
+    let mathExample = `Next year I will be ${age + 1} years old.`;
+    let upperCase = `My name in caps: ${firstName.toUpperCase()} ${lastName.toUpperCase()}`;
+    
+    // Multi-line strings (impossible with quotes)
+    let multiLine = `
+        Name: ${firstName} ${lastName}
+        Age: ${age}
+        City: ${city}
+        Status: ${age >= 18 ? 'Adult' : 'Minor'}
+    `;
+    
+    let output = `
+        <strong>Template Literals with \` (backticks):</strong><br><br>
+        firstName = "${firstName}", lastName = "${lastName}", age = ${age}<br><br>
+        <strong>Simple template literals:</strong><br>
+        greeting2: "${greeting2}"<br>
+        info2: "${info2}"<br><br>
+        <strong>With expressions:</strong><br>
+        mathExample: "${mathExample}"<br>
+        upperCase: "${upperCase}"<br><br>
+        <strong>Multi-line string:</strong><br>
+        <pre>${multiLine}</pre>
+        <em>Template literals are much cleaner and more readable!</em>
+    `;
+    
+    document.getElementById('string-output').innerHTML = output;
+}
+
+function showStringMethods() {
+    let message = "  JavaScript is Amazing!  ";
+    
+    let output = `
+        <strong>Common String Methods:</strong><br><br>
+        Original: "${message}"<br><br>
+        <strong>Case methods:</strong><br>
+        toLowerCase(): "${message.toLowerCase()}"<br>
+        toUpperCase(): "${message.toUpperCase()}"<br><br>
+        <strong>Whitespace methods:</strong><br>
+        trim(): "${message.trim()}" (removes leading/trailing spaces)<br><br>
+        <strong>Information methods:</strong><br>
+        length: ${message.length} characters<br>
+        charAt(2): "${message.charAt(2)}" (character at index 2)<br>
+        indexOf("Script"): ${message.indexOf("Script")} (position of "Script")<br><br>
+        <strong>Substring methods:</strong><br>
+        substring(2, 12): "${message.substring(2, 12)}"<br>
+        slice(-8, -3): "${message.slice(-8, -3)}" (negative indices)<br><br>
+        <strong>Replace method:</strong><br>
+        replace("Amazing", "Awesome"): "${message.replace("Amazing", "Awesome")}"<br><br>
+        <strong>Split method:</strong><br>
+        split(" "): [${message.trim().split(" ").map(word => `"${word}"`).join(", ")}]
+    `;
+    
+    document.getElementById('string-output').innerHTML = output;
+}
+</script>
+    
+</body>
+</html>
