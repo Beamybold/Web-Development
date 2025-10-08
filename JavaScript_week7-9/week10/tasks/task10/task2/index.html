@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Info Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result img {
+      width: 150px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌍 Country Info Finder</h2>
+
+  <input type="text" id="countryInput" placeholder="Enter country name" />
+  <button onclick="getCountryInfo()">Search</button>
+
+  <div id="result"></div>
+
+  <script>
+    async function getCountryInfo() {
+      const country = document.getElementById("countryInput").value.trim();
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "Loading...";
+
+      try {
+        const res = await fetch(https://restcountries.com/v3.1/name/country);
+        if (!res.ok) throw new Error("Country not found");
+
+        const data = await res.json();
+        const info = data[0];
+
+        resultDiv.innerHTML = `
+          <img src="{info.flags.png}" alt="Flag of info.name.common" />
+          <p><strong>Capital:</strong>{info.capital[0]}</p>
+          <p><strong>Population:</strong> info.population.toLocaleString()</p>
+          <p><strong>Region:</strong>{info.region}</p>
+        `;
+      } catch (err) {
+        resultDiv.innerHTML = <p style="color:red;">❌ ${err.message}</p>;
+      }
+    }
+  </script>
+
+</body>
+</html

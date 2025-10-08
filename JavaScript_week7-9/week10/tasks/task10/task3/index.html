@@ -1,0 +1,65 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Pass Rate Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .pass {
+      color: green;
+      background-color: #e0ffe0;
+    }
+
+    .fail {
+      color: red;
+      background-color: #ffe0e0;
+    }
+  </style>
+</head>
+<body>
+  <h3 id="result">Pass Rate:</h3>
+
+  <script>
+    let apiData = `{
+      "students": [
+        { "name": "Tola", "score": 78 },
+        { "name": "John", "score": 45 },
+        { "name": "Mary", "score": 92 }
+      ]
+    }`;
+
+    const parsedData = JSON.parse(apiData);
+
+    function getPassRate(data) {
+      const students = data.students;
+      const total = students.length;
+      const passed = students.filter(s => s.score >= 50).length;
+      return ((passed / total) * 100).toFixed(1);
+    }
+
+    const passRate = getPassRate(parsedData);
+    const resultEl = document.getElementById('result');
+
+    resultEl.textContent = Pass Rate: ${passRate}%;
+
+    // Apply color class based on pass rate
+    if (passRate >= 50) {
+ resultEl.classList.add('pass');
+    } else {
+      resultEl.classList.add('fail');
+    }
+  </script>
+</body>
+</html>
