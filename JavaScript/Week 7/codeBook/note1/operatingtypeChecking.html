@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="demo">
+    <h3>The typeof Operator</h3>
+    <p>Learn how to check data types in JavaScript:</p>
+    
+    <button class="demo-btn" onclick="demonstrateTypeof()">Show typeof Examples</button>
+    <button class="demo-btn" onclick="typeCheckingPractice()">Type Checking Practice</button>
+    
+    <div id="typeof-output" class="output">Click a button to explore the typeof operator...</div>
+</div>
+
+<script>
+function demonstrateTypeof() {
+    // Different variables with different types
+    let stringVar = "Hello";
+    let numberVar = 42;
+    let booleanVar = true;
+    let undefinedVar;
+    let nullVar = null;
+    let objectVar = {};
+    let arrayVar = [];
+    let functionVar = function() {};
+    
+    let output = `
+        <strong>Using the typeof Operator:</strong><br><br>
+        <table style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #dee2e6;">
+                <th style="padding: 8px; border: 1px solid #ccc;"th>Variable</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">Value</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">typeof Result</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">stringVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">"${stringVar}"</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof stringVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">numberVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${numberVar}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof numberVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">booleanVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${booleanVar}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof booleanVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">undefinedVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${undefinedVar}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof undefinedVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">nullVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${nullVar}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof nullVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">objectVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">{}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof objectVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">arrayVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">[]</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof arrayVar}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">functionVar</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">function() {}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof functionVar}</td>
+            </tr>
+        </table><br> 
+        <em>Note: typeof null returns "object" (this is a known JavaScript quirk)<br>
+        Arrays also return "object" because they are objects in JavaScript</em>
+    `;
+    
+    document.getElementById('typeof-output').innerHTML = output;
+}
+
+function typeCheckingPractice() {
+    // Function to safely check types
+    function getDetailedType(value) {
+        if (value === null) return "null";
+        if (Array.isArray(value)) return "array";
+        return typeof value;
+    }
+    
+    // Test values
+    let testValues = [
+        "JavaScript",
+        42,
+        true,
+        undefined,
+        null,
+        {},
+        [1, 2, 3],
+        function() { return "hello"; }
+    ];
+    
+    let output = `
+        <strong>Better Type Checking:</strong><br><br>
+        <table style="border-collapse: collapse; width: 100%;">
+            <tr style="background-color: #dee2e6;">
+                <th style="padding: 8px; border: 1px solid #ccc;">Value</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">typeof</th>
+                <th style="padding: 8px; border: 1px solid #ccc;">Better Check</th>
+            </tr>
+    `;
+    
+    testValues.forEach((value, index) => {
+        let displayValue;
+        if (typeof value === 'string') displayValue = `"${value}"`;
+        else if (Array.isArray(value)) displayValue = `[${value.join(', ')}]`;
+        else if (typeof value === 'function') displayValue = 'function() {...}';
+        else if (typeof value === 'object' && value !== null) displayValue = '{}';
+        else displayValue = String(value);
+        
+        output += `
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ccc;">${displayValue}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${typeof value}</td>
+                <td style="padding: 8px; border: 1px solid #ccc;">${getDetailedType(value)}</td>
+            </tr>
+        `;
+    });
+    
+    output += `
+        </table><br>
+        <strong>Type Checking Tips:</strong><br>
+        • Use typeof for primitives (string, number, boolean, undefined)<br>
+        • Check for null explicitly: value === null<br>
+        • Use Array.isArray() for arrays<br>
+        • Functions have typeof "function"<br>
+        • Everything else is "object"
+    `;
+    
+    document.getElementById('typeof-output').innerHTML = output;
+}
+</script>
+    
+</body>
+</html>

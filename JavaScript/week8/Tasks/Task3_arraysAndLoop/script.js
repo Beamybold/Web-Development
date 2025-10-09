@@ -1,9 +1,9 @@
-// // //1. Shopping List
+// //1. Shopping List
 
-// // //1. An array with at least 5 items
-// let shoppingLists = ["pen", "book", "Keys", "fan", "bag", "wine", "icecream", "flask"] 
+// //1. An array with at least 5 items
+let shoppingLists = ["pen", "book", "Keys", "fan", "bag", "wine", "icecream", "flask"] 
 
-// // //2. to add a new item to the end of the list
+// //2. to add a new item to the end of the list
 // shoppingLists.push("oil") 
 // console.log("Complete Shopping list: " + shoppingLists)
 // console.log("")
